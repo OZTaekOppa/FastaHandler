@@ -71,6 +71,25 @@ Oxford Nanopore reads(https://ngdc.cncb.ac.cn/gsa/browse/CRA004538) and (https:/
 
 **PoreQC**, integrated with Nextflow, has two specific features: a basecalling (Slow5) and a result summary and visualisation of quality control (Fastq). The data input/output enables end-to-end file selection. The result summary and visualisation are mainly designed to visualise the outcome for quality control. Please note that all required input files (e.g. Slow5) must be prepared from [Slow5tools](https://github.com/hasindu2008/slow5tools) to have a seamless experience of **PoreQC**. However, users can use Fastq files for quick quality control. 
 
+**FASTAhandler**, mainly written in Python 3.12+ and ??, has two specific features: a data input module and a result visualisation window. The data input module enables end-to-end file selection. The result visualisation window is mainly designed to visulise the outcome selected by a user. Please note that all required input files (e.g. vcf, gff, gtf, bam, and fasta) must be prepared from third party programs before running the iVPSV. And, all input files must be in your local drive on your desktops.
+
+
+### multi2singleline
+- To convert a multi-fasta (multiline) into a single-line fasta.
+
+Example usage
+```
+python3 multi2singleline.py --input-seq test_dna.fasta --out test_output_sl.fasta --t 1 --mem 2
+```
+
+- Parameter explanation
+	python 3: Call python 3
+	multi2singleline.py:  Call multi2singleline module
+	python3 multi2singleline.py --help: Check help menu
+	--input-seq: Indicate an input multi-fasta (multiline) fasta file and its path
+	--out: Indicate an output single-line fasta file and its path
+	--t: Specify thread numbers (integer only)
+	--mem: Specify memory numbers (integer only only with Gb size)
 
 ### Slow5 format:
 - Slow5 tools: Please see the official page of [Slow5tools](https://github.com/hasindu2008/slow5tools) to make a proper Slow5 format from the ONT data.
