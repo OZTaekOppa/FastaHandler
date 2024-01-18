@@ -83,9 +83,9 @@ python3 multi2singleline.py --input-seq test_dna.fasta --out test_output_sl.fast
 ```
 
 - Parameter explanation
-	python 3: Call python 3
-	multi2singleline.py:  Call multi2singleline module
-	python3 multi2singleline.py --help: Check help menu
+	1. python 3: Call python 3
+	1. multi2singleline.py:  Call multi2singleline module
+	1. python3 multi2singleline.py --help: Check help menu
 	--input-seq: Indicate an input multi-fasta (multiline) fasta file and its path
 	--out: Indicate an output single-line fasta file and its path
 	--t: Specify thread numbers (integer only)
