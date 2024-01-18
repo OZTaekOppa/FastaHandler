@@ -76,6 +76,9 @@ Oxford Nanopore reads(https://ngdc.cncb.ac.cn/gsa/browse/CRA004538) and (https:/
 
 ### multi2singleline
 - To convert a multi-fasta (multiline) into a single-line fasta.
+	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: Fasta file generated from buttery-eel pipeline.
+	+ Output: A single-line fasta.
 
 Example usage
 ```
@@ -90,6 +93,199 @@ python3 multi2singleline.py --input-seq test_dna.fasta --out test_output_sl.fast
 		+ --out: Indicate an output single-line fasta file and its path
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only only with Gb size)
+
+### renameid
+- To rename prefix IDs and headers from a single-line fasta.
+
+Example usage
+```
+python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_reN.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. renameid.py:  Call renameid module
+	1. python3 renameid.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --new-name: Indicate a new prefix ID/header name (accept both integer and strings but no space)
+		+ --out: Indicate an output renamed single-line fasta file and its path
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### idextract
+- To extract matched IDs and their corresponding sequences.
+
+Example usage
+```
+python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --out output_extracted.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+	
+- Parameter explanation
+	1. python 3: Call python 3
+	1. idextract.py:  Call idextract module
+	1. python3 idextract.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --input-header: Indicate an input ID and header (without ">") text file and its path
+		+ --out: Indicate an output ID matched and extracted single-line fasta file and its path
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### idextractlocation
+- To extract matched IDs, locations and their corresponding sequences (focused on a single ID)
+
+Example usage
+```
+python3 idextractlocation.py --input-seq test_dna.fasta --header-id test3_3%week --start 2 --end 10 --out output_test.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. idextractlocation.py:  Call idextractlocation module
+	1. python3 idextractlocation.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --header-id: Indicate an input ID and header (without ">") name and pattern
+		+ --start: Indicate a start position to extract (please use -1 value due to the python index)
+		+ --end: Indicate en end position to extract (please use -1 value due to the python index)
+		+ --out: Indicate an output ID matched and extracted single-line fasta file and its path
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+	
+### idextractlocamulti
+- To extract matched IDs, locations and their corresponding sequences (focused on a multiple IDs)
+
+Example usage
+```
+python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_extract.txt --out output_extest.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. idextractlocamulti.py:  Call idextractlocamulti module
+	1. python3 idextractlocamulti.py --help: Check help menu
+	--input-seq: Indicate an input single-line fasta file and its path
+	--input-extract: Indicate an input ID and header (without ">") text file (a tap-separated) and its path including start and end positions (please use -1 value due to the python index)
+	--out: Indicate an output ID matched and extracted single-line fasta file and its path
+	--t: Specify thread numbers (intergr only)
+	--mem: Specify memory numbers (integer only with Gb size)
+
+### revcomplement
+- To make a reverse completement seqeucne
+
+Example usage
+```
+python3 revcomplement.py --input-seq test_dna.fasta --out output_revctest.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. revcomplement.py:  Call revcomplement module
+	1. python3 revcomplement.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --out: Indicate a reverse complement converted output single-line fasta file and its path
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### findcountdupl
+- To find and count the duplicated IDs and sequences from a multi-fasta file
+
+Example usage
+```
+python3 findcountdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. findcountdupl.py:  Call findcountdupl module
+	1. python3 findcountdupl.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
+		+ --out: Indicate an output text file after finding and counting the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### removedupl
+- To remove the duplicated IDs and sequences from a multi-fasta file
+
+Example usage
+```
+python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. removedupl.py:  Call removedupl module
+	1. python3 removedupl.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
+		+ --outfasta: Indicate an output fasta file after removing the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### subsetfasta
+- To make a subset of data with a sequence length filter option
+
+Example usage
+```
+python3 subsetfasta.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. subsetfasta.py:  Call subsetfasta module
+	1. python3 subsetfasta.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
+		+ --filter: Indicate a length size to filter out
+		+ --out: Indicate an output fasta file after filtering the length size (intergr only)
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### extractpattern
+- To make a subset of data with find, filter and extract options
+
+Example usage
+```
+python3 extractpattern.py --input-seq test_dna1.fasta --input-pattern seq_pattern.txt --input-length 45 --out output_pattern.fasta --t 1 --mem 2
+```
+	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. extractpattern.py:  Call extractpattern module
+	1. python3 extractpattern.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
+		+ --input-pattern: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
+		+ --input-length: Indicate a length size to filter out
+		+ --out: Indicate an output fasta file after filtering the length size (intergr only)
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+
+### concatenate (여기 Unlimited Input으로 변경. ASMstats와 비슷한 방법으로. 변경 했음. 확인 요망)
+- To make a subset of data with find, filter and extract options
+
+Example usage
+```
+python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fasta --out output_concat.fasta --t 1 --mem 2
+```
+	+ To maximise this module, the multiple input fasta files must have the same prefix IDs and headers along with a single-line fasta before concatenating.
+	+ If not, please use renameid and multi2singleline modules before using concatenate module.
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. concatenate.py:  Call concatenate module
+	1. python3 concatenate.py --help: Check help menu
+		+ --input-seq: Indicate input single-line fasta files and their path
+		+ --out: Indicate a concatenated output fasta file and its path
+		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+ 
 
 ### Slow5 format:
 - Slow5 tools: Please see the official page of [Slow5tools](https://github.com/hasindu2008/slow5tools) to make a proper Slow5 format from the ONT data.
