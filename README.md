@@ -22,13 +22,13 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 
 
 ## STABLE (version 0.0.XXX)
-Release date: January 2024
-**FASTAhandler** is a standalone Python application with 14 modules for manipulating FASTA files via interactive steps with open-source programs (See LICENSE). 
+- Release date: January 2024
+- **FASTAhandler** is a standalone Python application with 14 modules for manipulating FASTA files via interactive steps with open-source programs (See LICENSE). 
 
 
 ## INSTALLATION
-Please download the program from [this link](https://github.com/OZTaekOppa/FASTAhandler)
-!!! Please note, that programs and dependencies can also be installed via Bioconda. For any other issues, we highly encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
+- Please download the program from [this link](https://github.com/OZTaekOppa/FASTAhandler)
+- !!! Please note, that programs and dependencies can also be installed via Bioconda. For any other issues, we highly encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
 
     ~~~
     Create the virtual environment
