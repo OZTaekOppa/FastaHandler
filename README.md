@@ -88,7 +88,7 @@ Example usage
 ```
 python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_reN.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
++ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
 
 - Parameter explanation
 	1. python 3: Call python 3
