@@ -77,7 +77,7 @@ Oxford Nanopore reads(https://ngdc.cncb.ac.cn/gsa/browse/CRA004538) and (https:/
 ### multi2singleline
 - To convert a multi-fasta (multiline) into a single-line fasta.
 	+ Requirement: The script of Python/bash requires a Python library.
-	+ Input: Fasta file generated from buttery-eel pipeline.
+	+ Input: A multiline fasta file.
 	+ Output: A single-line fasta.
 
 Example usage
@@ -96,6 +96,10 @@ python3 multi2singleline.py --input-seq test_dna.fasta --out test_output_sl.fast
 
 ### renameid
 - To rename prefix IDs and headers from a single-line fasta.
+	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file.
+	+ Output: A single-line fasta with a new prefix ID name.
+
 
 Example usage
 ```
@@ -110,11 +114,14 @@ python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_re
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --new-name: Indicate a new prefix ID/header name (accept both integer and strings but no space)
 		+ --out: Indicate an output renamed single-line fasta file and its path
-		+ --t: Specify thread numbers (intergr only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### idextract
 - To extract matched IDs and their corresponding sequences.
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a list of IDs.
+	+ Output: A single-line fasta with extracted IDs and their corresponding sequences.
 
 Example usage
 ```
@@ -129,11 +136,14 @@ python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --o
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --input-header: Indicate an input ID and header (without ">") text file and its path
 		+ --out: Indicate an output ID matched and extracted single-line fasta file and its path
-		+ --t: Specify thread numbers (intergr only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### idextractlocation
 - To extract matched IDs, locations and their corresponding sequences (focused on a single ID)
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a list of IDs.
+	+ Output: A single-line fasta with extracted IDs and their corresponding sequences.
 
 Example usage
 ```
@@ -150,11 +160,14 @@ python3 idextractlocation.py --input-seq test_dna.fasta --header-id test3_3%week
 		+ --start: Indicate a start position to extract (please use -1 value due to the python index)
 		+ --end: Indicate en end position to extract (please use -1 value due to the python index)
 		+ --out: Indicate an output ID matched and extracted single-line fasta file and its path
-		+ --t: Specify thread numbers (intergr only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 	
 ### idextractlocamulti
-- To extract matched IDs, locations and their corresponding sequences (focused on a multiple IDs)
+- To extract matched IDs, locations and their corresponding sequences (focused on multiple IDs)
+  	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a list of IDs.
+	+ Output: A single-line fasta with extracted IDs and their corresponding sequences.
 
 Example usage
 ```
@@ -173,7 +186,10 @@ python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_e
 	--mem: Specify memory numbers (integer only with Gb size)
 
 ### revcomplement
-- To make a reverse completement seqeucne
+- To make a reverse complement sequence
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file.
+	+ Output: A reverse complement single-line fasta.
 
 Example usage
 ```
@@ -192,6 +208,9 @@ python3 revcomplement.py --input-seq test_dna.fasta --out output_revctest.fasta 
 
 ### findcountdupl
 - To find and count the duplicated IDs and sequences from a multi-fasta file
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file.
+	+ Output: A text with a duplication number.
 
 Example usage
 ```
@@ -210,6 +229,9 @@ python3 findcountdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 
 
 ### removedupl
 - To remove the duplicated IDs and sequences from a multi-fasta file
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file.
+	+ Output: A single-line fasta after removing updated IDs and sequences.
 
 Example usage
 ```
@@ -228,6 +250,9 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
 
 ### subsetfasta
 - To make a subset of data with a sequence length filter option
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file.
+	+ Output: A subseted single-line fasta.
 
 Example usage
 ```
@@ -247,6 +272,9 @@ python3 subsetfasta.py --input-seq test_mRNA1.fasta --filter 50 --out output_sub
 
 ### extractpattern
 - To make a subset of data with find, filter and extract options
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a list of patterns.
+	+ Output: A extracted single-line fasta with IDs and their corresponding sequences.
 
 Example usage
 ```
@@ -268,6 +296,9 @@ python3 extractpattern.py --input-seq test_dna1.fasta --input-pattern seq_patter
 
 ### concatenate (여기 Unlimited Input으로 변경. ASMstats와 비슷한 방법으로. 변경 했음. 확인 요망)
 - To make a subset of data with find, filter and extract options
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: Multiple fasta files with the same prefix IDs.
+	+ Output: A single-line fasta with concatenated IDs and their corresponding sequences.
 
 Example usage
 ```
@@ -287,82 +318,10 @@ python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fast
 
  
 
-### Slow5 format:
-- Slow5 tools: Please see the official page of [Slow5tools](https://github.com/hasindu2008/slow5tools) to make a proper Slow5 format from the ONT data.
-
-### Buttery-eel:
-- Requriment: The pipeline of buttery-eel requires both CPU and GPU resources.
-- Computing environment: Please use an HPC or Cloud to facilitate the CPU and GPU resources with a proper queue job submission.
-- Buttery-eel.pbs.sh: Secure the [buttery-eel-guppy](https://github.com/hasindu2008/nci-scripts/blob/main/basecall/buttery-eel-guppy.pbs.sh) or [butter-eel-dorado](https://github.com/hasindu2008/nci-scripts/blob/main/basecall/buttery-eel-dorado.pbs.sh) pipelines
-- Input: Slow5 secured from Slow5tools.
-- Output: Basecalled and trimmed Fastq file.
-- Select model: Depending on ONT library preparation and sequencing kits, users must select the proper model in the pipeline.
-- Module load: Users can choose two options between buttery-eel (v0.4.2) + guppy (v6.5.7) and buttery-eel (v0.4.2) + dorado (v7.2.13). Please check the page of Butter-eel [Buttery-eel](https://github.com/Psy-Fer/buttery-eel) for the latest versions.
-- Default mode: This mode will do the basic basecalling with detection and removal of adapters.
-1. Usage: Execute this command in the terminal.
-```
-qsub -v MERGED_SLOW5=/ONT_raw_data/QTXXXX230285_reads.blow5,BASECALL_OUT=/ONT_raw_data/OutFQDrdT2 ./buttery-eel_QT0285.pbs.sh
-```
-  
-- Advanced mode: This mode will do the basecalling, removal adapters and split reads.
-1. Add parameters: Add these parameters "--detect_mid_strand_adapter --trim_adapters --detect_adapter --do_read_splitting" in the pipeline, specifically after "--max_queued_reads 20000."
-1. Usage: Execute this command in the terminal.
-```
-qsub -v MERGED_SLOW5=/ONT_raw_data/QTXXXX230285_reads.blow5,BASECALL_OUT=/ONT_raw_data/OutFQDrdT2 ./buttery-eel_QT0285.pbs.sh
-```
-
-
-### Reads Stats:
-- Requirement: The script of Perl/bash requires a Perl library.
-- Input: Fastq file generated from buttery-eel pipeline.
-- Output: A summary of csv file for the Fastq.
-- Perl script: An in-house script to calculate the basic stats of Fastq file (including compressed file format).
-1. Usage: Execute this command in the terminal.
-1. Mandatory parameters: --input.fq and --out para
-1. Optional parameters: --t and --mem
-1. Help: perl fqreadstats.pl --help
-```
-perl fqreadstats.pl --input.fq test_reads.fq.gz --out test_reads.csv --t 2 --mem 40
-```
-
-### Cutadapt 
-- Installation and Requirement: Please see the page of [Cutadapt](https://github.com/marcelm/cutadapt)
-- Input: Fastq file generated from buttery-eel pipeline.
-- Output: Trimmed Fastq file.
-1. Usage: Execute this command in the terminal.
-1. Mandatory parameters: -g, -a, or -b (adapter sequences), -o (output directory), and input.fastq/fq (input fastq file)
-```
-cutadapt -g TTTTTTTTCCTGTACTTCGTTCAGTTACGTATTGCT -o /output_folder/ input.fastq
-```
-
-
-### Sequali:
-- Installation and Requirement: Please see the page of [Sequali](https://github.com/rhpvorderman/sequali) 
-- Input: Fastq file generated from buttery-eel pipeline or Cutadapt.
-- Output: A summary of html and json file for the Fastq.
-1. Usage: Execute this command in the terminal.
-1. Mandatory parameters: input.fastq/fq (input fastq file) --adapter-file (adapter sequences as .tsv), --outdir (output directory), and -t (CPU number)
-```
-sequali input.fastq --adapter-file "$ASFL" --outdir /output_folder/ -t 2
-```
-
-
-### Nextflow:
-- Installation and Requirement: Please see the page of [Nextflow](https://github.com/rhpvorderman/sequali???????) 
-- Input: Slow5 file generated from [Slow5tools](https://github.com/hasindu2008/slow5tools).
-- Output: Cleaned Fastq and its summary with html and json files.
-- Interaction: A user can indicate the input/output folder/file for their convenience.
-- Resume: An interrupted stage/step can be resumed via Nextflow management.
-1. Usage: Execute this command in the terminal.
-1. Mandatory parameters: input.fastq/fq (input fastq file) --adapter-file (adapter sequences as .tsv), --outdir (output directory), and -t (CPU number)
-```
-sequali input.fastq --adapter-file "$ASFL" --outdir /output_folder/ -t 2
-```
-
 
 ## FAQ
 
-We encourage users to use the [Issues](https://github.com/OZTaekOppa/PoreQC/issues).
+We encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
 
 
 ## WIKI PAGE
@@ -377,4 +336,4 @@ Please see GitHub page.
 
 ## COPYRIGHT
 
-The full **PoreQC** is distributed under the MIT license. 
+The full **FASTAhandler** is distributed under the MIT license. 
