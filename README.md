@@ -46,26 +46,12 @@ Please download the program from [this link](https://github.com/OZTaekOppa/FASTA
 
 ## License
 
-**FASTAhandler** is provided under the MIT license and is based on other open-source software:
-
-[Guppy](https://community.nanoporetech.com/docs/prepare/library_prep_protocols/Guppy-protocol/v/gpb_2003_v1_revax_14dec2018/guppy-software-overview) for  basecalling and processing raw signal data from nanopore sequencing devices, providing accurate DNA sequence information.
-
-[Dorado](https://github.com/nanoporetech/dorado) for Oxford Nanopore long-read sequencing data, offering enhanced accuracy in detecting structural variants and single nucleotide variants.
-
-[Buttery-eel](https://github.com/Psy-Fer/buttery-eel) for a Slow5 file reader and basecalling wrapper for Guppy and Dorado.
-
-[Cutadapt](https://github.com/marcelm/cutadapt) for removing adapters, primers, and other unwanted sequences from high-throughput sequencing data.
-
-[Sequali](https://github.com/rhpvorderman/sequali) for evaluating the quality of sequencing data through the generation of comprehensive metrics and visualizations.
-
-[Nextflow](https://github.com/nextflow-io/nextflow) for a data-driven computational workflow engine designed to facilitate scalable and reproducible scientific workflows.
-
-[In-house Perl Script] for calculating basic statistics of a FASTQ file in-house.
+**FASTAhandler** is provided under the MIT license and is based on other open-source software. Please see the manuscript for the full details including Python packages, modules and libraries integrated into **FASTAhandler** and their applications. 
 
 
 ### Tested Datasets
-Reference genome(https://www.ncbi.nlm.nih.gov/assembly/GCF_000001735.3/#/st)
-Oxford Nanopore reads(https://ngdc.cncb.ac.cn/gsa/browse/CRA004538) and (https://www.sciencedirect.com/science/article/pii/S1672022921001741)
+Please see the example dataset folder. 
+
 
 ## GETTING STARTED
 **FASTAhandler**, mainly written in Python 3.12+ and ??, has 14 modules. The data input and output via CLI enables end-to-end file selection. Please note that all required input files (e.g. fasta and txt) must be prepared to have a seamless experience of **FASTAhandler**. 
