@@ -110,7 +110,7 @@ Example usage
 ```
 python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --out output_extracted.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 	
 - Parameter explanation
 	1. python 3: Call python 3
@@ -132,7 +132,7 @@ Example usage
 ```
 python3 idextractlocation.py --input-seq test_dna.fasta --header-id test3_3%week --start 2 --end 10 --out output_test.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -156,7 +156,7 @@ Example usage
 ```
 python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_extract.txt --out output_extest.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -178,7 +178,7 @@ Example usage
 ```
 python3 revcomplement.py --input-seq test_dna.fasta --out output_revctest.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -199,7 +199,7 @@ Example usage
 ```
 python3 findcountdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -220,7 +220,7 @@ Example usage
 ```
 python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -241,7 +241,7 @@ Example usage
 ```
 python3 subsetfasta.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -263,7 +263,7 @@ Example usage
 ```
 python3 extractpattern.py --input-seq test_dna1.fasta --input-pattern seq_pattern.txt --input-length 45 --out output_pattern.fasta --t 1 --mem 2
 ```
-	+ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -287,8 +287,8 @@ Example usage
 ```
 python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fasta --out output_concat.fasta --t 1 --mem 2
 ```
-	+ To maximise this module, the multiple input fasta files must have the same prefix IDs and headers along with a single-line fasta before concatenating.
-	+ If not, please use renameid and multi2singleline modules before using concatenate module.
++ To maximise this module, the multiple input fasta files must have the same prefix IDs and headers along with a single-line fasta before concatenating.
++ If not, please use renameid and multi2singleline modules before using concatenate module.
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -298,8 +298,6 @@ python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fast
 		+ --out: Indicate a concatenated output fasta file and its path
 		+ --t: Specify thread numbers (intergr only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
-
- 
 
 
 ## FAQ
