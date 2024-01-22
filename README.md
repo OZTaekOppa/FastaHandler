@@ -57,7 +57,7 @@ Please see the example dataset folder.
 **FASTAhandler**, mainly written in Python 3.12+ and ??, has 14 modules. The data input and output via CLI enables end-to-end file selection. Please note that all required input files (e.g. fasta and txt) must be prepared to have a seamless experience of **FASTAhandler**. 
 
 
-### multi2singleline
+### multi2single
 - To convert a multi-fasta (multiline) into a single-line fasta.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multiline fasta file.
@@ -65,12 +65,12 @@ Please see the example dataset folder.
 
 Example usage
 ```
-python3 multi2singleline.py --input-seq test_dna.fasta --out test_output_sl.fasta --t 1 --mem 2
+python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --t 1 --mem 2
 ```
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. multi2singleline.py:  Call multi2singleline module
+	1. multi2singleline.py:  Call multi2single module
 	1. python3 multi2singleline.py --help: Check help menu
 		+ --input-seq: Indicate an input multi-fasta (multiline) fasta file and its path
 		+ --out: Indicate an output single-line fasta file and its path
@@ -88,7 +88,7 @@ Example usage
 ```
 python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_reN.fasta --t 1 --mem 2
 ```
-+ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
++ If the input fasta file is not a single-line fasta, please use the multi2single module first. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -111,7 +111,7 @@ Example usage
 ```
 python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
 ```
-+ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
++ If the input fasta file is not a single-line fasta, please use the multi2single module first. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -134,7 +134,7 @@ Example usage
 ```
 python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
 ```
-+ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
++ If the input fasta file is not a single-line fasta, please use the multi2single module first. 
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -168,7 +168,7 @@ python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --o
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### idextractlocation
+### idextloct
 - To extract matched IDs, locations and their corresponding sequences (focused on a single ID)
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
@@ -176,14 +176,14 @@ python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --o
 
 Example usage
 ```
-python3 idextractlocation.py --input-seq test_dna.fasta --header-id test3_3%week --start 2 --end 10 --out output_test.fasta --t 1 --mem 2
+python3 idextloct.py --input-seq test_dna.fasta --header-id test3_3%week --start 2 --end 10 --out output_test.fasta --t 1 --mem 2
 ```
 + If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. idextractlocation.py:  Call idextractlocation module
-	1. python3 idextractlocation.py --help: Check help menu
+	1. idextractlocation.py:  Call idextloct module
+	1. python3 idextloct.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --header-id: Indicate an input ID and header (without ">") name and pattern
 		+ --start: Indicate a start position to extract (please use -1 value due to the python index)
@@ -192,7 +192,7 @@ python3 idextractlocation.py --input-seq test_dna.fasta --header-id test3_3%week
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 	
-### idextractlocamulti
+### idextloctmlt
 - To extract matched IDs, locations and their corresponding sequences (focused on multiple IDs)
   	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
@@ -200,13 +200,13 @@ python3 idextractlocation.py --input-seq test_dna.fasta --header-id test3_3%week
 
 Example usage
 ```
-python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_extract.txt --out output_extest.fasta --t 1 --mem 2
+python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_extract.txt --out output_extest.fasta --t 1 --mem 2
 ```
 + If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. idextractlocamulti.py:  Call idextractlocamulti module
+	1. idextractlocamulti.py:  Call idextloctmlt module
 	1. python3 idextractlocamulti.py --help: Check help menu
 	--input-seq: Indicate an input single-line fasta file and its path
 	--input-extract: Indicate an input ID and header (without ">") text file (a tap-separated) and its path including start and end positions (please use -1 value due to the python index)
@@ -214,7 +214,7 @@ python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_e
 	--t: Specify thread numbers (integer only)
 	--mem: Specify memory numbers (integer only with Gb size)
 
-### revcomplement
+### revcomplt
 - To make a reverse complement sequence
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -222,20 +222,20 @@ python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_e
 
 Example usage
 ```
-python3 revcomplement.py --input-seq test_dna.fasta --out output_revctest.fasta --t 1 --mem 2
+python3 revcomplt.py --input-seq test_dna.fasta --out output_revctest.fasta --t 1 --mem 2
 ```
 + If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. revcomplement.py:  Call revcomplement module
-	1. python3 revcomplement.py --help: Check help menu
+	1. revcomplement.py:  Call revcomplt module
+	1. python3 revcomplt.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --out: Indicate a reverse complement converted output single-line fasta file and its path
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### findcountdupl
+### findcntdupl
 - To find and count the duplicated IDs and sequences from a multi-fasta file
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -243,14 +243,14 @@ python3 revcomplement.py --input-seq test_dna.fasta --out output_revctest.fasta 
 
 Example usage
 ```
-python3 findcountdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 --mem 2
+python3 findcntdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 --mem 2
 ```
 + If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. findcountdupl.py:  Call findcountdupl module
-	1. python3 findcountdupl.py --help: Check help menu
+	1. findcountdupl.py:  Call findcntdupl module
+	1. python3 findcntdupl.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --out: Indicate an output text file after finding and counting the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
 		+ --t: Specify thread numbers (integer only)
@@ -277,7 +277,7 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### subsetfasta
+### subsetfa
 - To make a subset of data with a sequence length filter option
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -285,21 +285,21 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
 
 Example usage
 ```
-python3 subsetfasta.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset.fasta --t 1 --mem 2
+python3 subsetfa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset.fasta --t 1 --mem 2
 ```
 + If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. subsetfasta.py:  Call subsetfasta module
-	1. python3 subsetfasta.py --help: Check help menu
+	1. subsetfasta.py:  Call subsetfa module
+	1. python3 subsetfa.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --filter: Indicate a length size to filter out
 		+ --out: Indicate an output fasta file after filtering the length size (integer only)
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### extractpattern
+### extractptrn
 - To make a subset of data with find, filter and extract options
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of patterns.
@@ -307,14 +307,14 @@ python3 subsetfasta.py --input-seq test_mRNA1.fasta --filter 50 --out output_sub
 
 Example usage
 ```
-python3 extractpattern.py --input-seq test_dna1.fasta --input-pattern seq_pattern.txt --input-length 45 --out output_pattern.fasta --t 1 --mem 2
+python3 extractptrn.py --input-seq test_dna1.fasta --input-pattern seq_pattern.txt --input-length 45 --out output_pattern.fasta --t 1 --mem 2
 ```
 + If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. extractpattern.py:  Call extractpattern module
-	1. python3 extractpattern.py --help: Check help menu
+	1. extractpattern.py:  Call extractptrn module
+	1. python3 extractptrn.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --input-pattern: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
 		+ --input-length: Indicate a length size to filter out
@@ -322,16 +322,80 @@ python3 extractpattern.py --input-seq test_dna1.fasta --input-pattern seq_patter
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
+### eachfastats
+- To generate each line fasta statistic for a multi-line fasta
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A multi-line fasta file.
+	+ Output: A summary of single-line fasta with its corresponding sequence length.
 
-### concatenate (여기 Unlimited Input으로 변경. ASMstats와 비슷한 방법으로. 변경 했음. 확인 요망)
-- To make a subset of data with find, filter and extract options
+Example usage
+```
+python3 eachfastats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --mem 2
+```
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. eachfastats.py:  Call eachfastats module
+	1. python3 eachfastats.py --help: Check help menu
+		+ --input-seq: Indicate an input multi-line fasta file and its path
+		+ --out: Indicate an output text file with the sequence length
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### allfastats
+- To generate a summary of multi-line fasta statistics. 
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A multi-line fasta file.
+	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
+
+Example usage
+```
+python3 allfastats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --mem 2
+```
++ If the input fasta file is not a single-line fasta, the embedded pipeline will automatically convert multiline fasta files into a single-line fasta.
++ Please note, while both eachfastats and allfastasts modules accept the same multi-line fasta as an input, eachfastats is focused on generating each fasta line and its sequence length and allfastasts is focused on generating a summary of assembly statistics (e.g. genome or transcriptome). 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. allfastats.py:  Call allfastats module
+	1. python3 allfastats.py --help: Check help menu
+		+ --input-seq: Indicate an input multi-line fasta file and its path
+		+ --out: Indicate an output text file with the summary of statistics
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### asmstatsunlm
+- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of the allfastats for multiple fasta files. 
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: Unlimited multi-line fasta files.
+	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
+
+Example usage
+```
+python3 asmstatsunlm.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+```
++ If the input fasta files are not single-line fasta, the embedded pipeline will automatically convert multiline fasta files into single-line fasta. 
++ Please note, while both allfastasts and asmstatsunlm modules accept the same multi-line fasta as an input, allfastats is focused on generating a summary of assembly statistics with a single multi-line fasta and asmstatsunlm is focused on generating a summary of assembly statistics with multiple multi-line fasta files (e.g. genome or transcriptome). 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. asmstatsunlm.py:  Call asmstatsunlm module
+	1. python3 asmstatsunlm.py --help: Check help menu
+		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
+		+ --out: Indicate an output text file with the summary of statistics
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### concatenate
+- To make a concatenated fasta file for unlimited fasta files. 
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Multiple fasta files with the same prefix IDs.
 	+ Output: A single-line fasta with concatenated IDs and their corresponding sequences.
 
 Example usage
 ```
-python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fasta --out output_concat.fasta --t 1 --mem 2
+python concatenate.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_concat.fasta --t 1 --mem 2
 ```
 + To maximise this module, the multiple input fasta files must have the same prefix IDs and headers along with a single-line fasta before concatenating.
 + While the embedded pipeline will automatically convert multiline fasta files into a single-line fasta, to make sure please use renameid and multi2singleline modules before using concatenate module.
@@ -340,7 +404,7 @@ python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fast
 	1. python 3: Call python 3
 	1. concatenate.py:  Call concatenate module
 	1. python3 concatenate.py --help: Check help menu
-		+ --input-seq: Indicate input single-line fasta files and their path
+		+ --input-seqs: Indicate input multiple single-line fasta files and their path (Separated by a space for each new fasta file)
 		+ --out: Indicate a concatenated output fasta file and its path
 		+ --t: Specify thread numbers (intergr only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
