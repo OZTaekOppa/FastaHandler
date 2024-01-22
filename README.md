@@ -100,6 +100,52 @@ python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_re
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
+### prfxrename
+- To rename prefix IDs and headers from a single-line fasta with a user's input text file.
+	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a tap-separated text file (e.g. old_IDs	new_IDs)
+	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be also produced with its original IDs.
+
+
+Example usage
+```
+python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
+```
++ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. prfxrename.py:  Call prfxrename module
+	1. python3 renameid.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --input-id: Indicate a new tap-separated prefix ID/header name file (accept both integer and strings but no space)
+		+ --out: Indicate an output renamed single-line fasta file and its path
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### prfxselrename
+- To rename prefix IDs and headers from a single-line fasta with a user's input text file.
+	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a tap-separated text file (e.g. old_IDs	new_IDs)
+	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be discarded.
+
+
+Example usage
+```
+python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
+```
++ If the input fasta file is not a single-line fasta, please use multi2singleline module first. 
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. prfxselrename.py:  Call prfxselrename module
+	1. python3 renameid.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --input-id: Indicate a new tap-separated prefix ID/header name file (accept both integer and strings but no space)
+		+ --out: Indicate an output renamed single-line fasta file and its path
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
 ### idextract
 - To extract matched IDs and their corresponding sequences.
  	+ Requirement: The script of Python/bash requires a Python library.
