@@ -211,7 +211,7 @@ python3 idextractlocamulti.py --input-seq test_dna.fasta --input-extract input_e
 	--input-seq: Indicate an input single-line fasta file and its path
 	--input-extract: Indicate an input ID and header (without ">") text file (a tap-separated) and its path including start and end positions (please use -1 value due to the python index)
 	--out: Indicate an output ID matched and extracted single-line fasta file and its path
-	--t: Specify thread numbers (intergr only)
+	--t: Specify thread numbers (integer only)
 	--mem: Specify memory numbers (integer only with Gb size)
 
 ### revcomplement
@@ -232,7 +232,7 @@ python3 revcomplement.py --input-seq test_dna.fasta --out output_revctest.fasta 
 	1. python3 revcomplement.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --out: Indicate a reverse complement converted output single-line fasta file and its path
-		+ --t: Specify thread numbers (intergr only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### findcountdupl
@@ -253,7 +253,7 @@ python3 findcountdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 
 	1. python3 findcountdupl.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --out: Indicate an output text file after finding and counting the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
-		+ --t: Specify thread numbers (intergr only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### removedupl
@@ -274,7 +274,7 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
 	1. python3 removedupl.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --outfasta: Indicate an output fasta file after removing the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
-		+ --t: Specify thread numbers (intergr only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### subsetfasta
@@ -295,8 +295,8 @@ python3 subsetfasta.py --input-seq test_mRNA1.fasta --filter 50 --out output_sub
 	1. python3 subsetfasta.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --filter: Indicate a length size to filter out
-		+ --out: Indicate an output fasta file after filtering the length size (intergr only)
-		+ --t: Specify thread numbers (intergr only)
+		+ --out: Indicate an output fasta file after filtering the length size (integer only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### extractpattern
@@ -318,8 +318,8 @@ python3 extractpattern.py --input-seq test_dna1.fasta --input-pattern seq_patter
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --input-pattern: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
 		+ --input-length: Indicate a length size to filter out
-		+ --out: Indicate an output fasta file after filtering the length size (intergr only)
-		+ --t: Specify thread numbers (intergr only)
+		+ --out: Indicate an output fasta file after filtering the length size (integer only)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
@@ -334,7 +334,7 @@ Example usage
 python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fasta --out output_concat.fasta --t 1 --mem 2
 ```
 + To maximise this module, the multiple input fasta files must have the same prefix IDs and headers along with a single-line fasta before concatenating.
-+ If not, please use renameid and multi2singleline modules before using concatenate module.
++ While the embedded pipeline will automatically convert multiline fasta files into a single-line fasta, to make sure please use renameid and multi2singleline modules before using concatenate module.
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -343,6 +343,28 @@ python concatenate.py --input-seq test_dna1.fasta test_dna2.fasta test_dna3.fast
 		+ --input-seq: Indicate input single-line fasta files and their path
 		+ --out: Indicate a concatenated output fasta file and its path
 		+ --t: Specify thread numbers (intergr only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### translatedna
+- To find the translated sequences as a protein including the open reading frames (ORFs)
+ 	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: Multline fasta files.
+	+ Output: A single-line fasta with translation and selected ORFs (nucleotide and protein sequences).
+
+Example usage
+```
+python translatedna.py --input-seq test_dna.fasta --out output/folder --t 1 --mem 2
+```
++ To maximise this module, the multiple input fasta files must have the same prefix IDs and headers along with a single-line fasta before translating.
++ While the embedded pipeline will automatically convert multiline fasta files into a single-line fasta, to make sure please use renameid and multi2singleline modules before using the translatedna module.
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. translatedna.py:  Call translatedna module
+	1. python3 translatedna.py --help: Check help menu
+		+ --input-seq: Indicate input single-line fasta files and their path
+		+ --out: Indicate a translated output fasta file and its path (a total of four fasta files for both nucleotide and protein sequences)
+		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
