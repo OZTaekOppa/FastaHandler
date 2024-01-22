@@ -1,6 +1,7 @@
 # FASTAhandler
 Python scripts designed for efficiently managing various types of FASTA file formats
 
+![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Logo.png)
 
 ## Brief Background
 **FASTAhandler** is designed for analysing and manipulating FASTA data efficiently. With 14 work modules, it simplifies input/output indications, covers diverse aspects of FASTA data analysis, and supports post-processing, filtering, and format conversion. We (Hyungtaek Jung and the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), Australia) initially started this project to provide comprehensive data management at the [National Computational Infrastructure](https://nci.org.au/) for biologists. As a command-line interface (CLI) application, we have tested it for various FASTA file formats focusing on life science datasets so that the greater research community can widely use it. However, please note that analysing and manipulating a big dataset would require large computational resources on HPC or Cloud. 
@@ -55,6 +56,8 @@ Please see the example dataset folder.
 
 ## GETTING STARTED
 **FASTAhandler**, mainly written in Python 3.12+ and ??, has 14 modules. The data input and output via CLI enables end-to-end file selection. Please note that all required input files (e.g. fasta and txt) must be prepared to have a seamless experience of **FASTAhandler**. 
+
+![FASTAhandler Workflow](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Workflow.png)
 
 
 ### multi2single
