@@ -4,11 +4,11 @@ Python scripts designed for efficiently managing various types of FASTA file for
 ![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Logo.png)
 
 ## Brief Background
-**FastaHandler** is designed for analysing and manipulating FASTA data efficiently. With 14 work modules, it simplifies input/output indications, covers diverse aspects of FASTA data analysis, and supports post-processing, filtering, and format conversion. We (Hyungtaek Jung and the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), Australia) initially started this project to provide comprehensive data management at the [National Computational Infrastructure](https://nci.org.au/) for biologists. As a command-line interface (CLI) application, we have tested it for various FASTA file formats focusing on life science datasets so that the greater research community can widely use it. However, please note that analysing and manipulating a big dataset would require large computational resources on HPC or Cloud. 
+**FastaHandler** is designed for analysing and manipulating FASTA data efficiently. With 17 work modules, it simplifies input/output indications, covers diverse aspects of FASTA data analysis, and supports post-processing, filtering, and format conversion. We (Hyungtaek Jung and the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), Australia) initially started this project to provide comprehensive data management at the [National Computational Infrastructure](https://nci.org.au/) for biologists. As a command-line interface (CLI) application, we have tested it for various FASTA file formats focusing on life science datasets so that the greater research community can widely use it. However, please note that analysing and manipulating a big dataset would require large computational resources on HPC or Cloud. 
 
 
 ## Citation
-Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: **FastaHandler**: An easy Python-based tool set for handling FASTA files, [PLoS Comp Biol Submitted](https://www.biorxiv.org/XXXX).
+Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: **FastaHandler**: An easy Python-based toolset for handling fasta files, [PLoS Comp Biol Submitted](https://www.biorxiv.org/XXXX).
 
 
 ## Contents:
