@@ -4,11 +4,11 @@ Python scripts designed for efficiently managing various types of FASTA file for
 ![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Logo.png)
 
 ## Brief Background
-**FASTAhandler** is designed for analysing and manipulating FASTA data efficiently. With 14 work modules, it simplifies input/output indications, covers diverse aspects of FASTA data analysis, and supports post-processing, filtering, and format conversion. We (Hyungtaek Jung and the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), Australia) initially started this project to provide comprehensive data management at the [National Computational Infrastructure](https://nci.org.au/) for biologists. As a command-line interface (CLI) application, we have tested it for various FASTA file formats focusing on life science datasets so that the greater research community can widely use it. However, please note that analysing and manipulating a big dataset would require large computational resources on HPC or Cloud. 
+**FastaHandler** is designed for analysing and manipulating FASTA data efficiently. With 14 work modules, it simplifies input/output indications, covers diverse aspects of FASTA data analysis, and supports post-processing, filtering, and format conversion. We (Hyungtaek Jung and the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), Australia) initially started this project to provide comprehensive data management at the [National Computational Infrastructure](https://nci.org.au/) for biologists. As a command-line interface (CLI) application, we have tested it for various FASTA file formats focusing on life science datasets so that the greater research community can widely use it. However, please note that analysing and manipulating a big dataset would require large computational resources on HPC or Cloud. 
 
 
 ## Citation
-Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: **FASTAhandler**: An easy Python-based tool set for handling FASTA files, [PLoS Comp Biol Submitted](https://www.biorxiv.org/XXXX).
+Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: **FastaHandler**: An easy Python-based tool set for handling FASTA files, [PLoS Comp Biol Submitted](https://www.biorxiv.org/XXXX).
 
 
 ## Contents:
@@ -24,7 +24,7 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 
 ## STABLE (version 0.0.XXX)
 - Release date: January 2024
-- **FASTAhandler** is a standalone Python application with 14 modules for manipulating FASTA files via interactive steps with open-source programs (See LICENSE). 
+- **FastaHandler** is a standalone Python application with 14 modules for manipulating FASTA files via interactive steps with open-source programs (See LICENSE). 
 
 
 ## INSTALLATION
@@ -47,7 +47,7 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 
 ## License
 
-**FASTAhandler** is provided under the MIT license and is based on other open-source software. Please see the manuscript for the full details including Python packages, modules and libraries integrated into **FASTAhandler** and their applications. 
+**FastaHandler** is provided under the MIT license and is based on other open-source software. Please see the manuscript for the full details including Python packages, modules and libraries integrated into **FASTAhandler** and their applications. 
 
 
 ### Tested Datasets
@@ -55,7 +55,7 @@ Please see the example dataset folder.
 
 
 ## GETTING STARTED
-**FASTAhandler**, mainly written in Python 3.12+ and ??, has 14 modules. The data input and output via CLI enables end-to-end file selection. Please note that all required input files (e.g. fasta and txt) must be prepared to have a seamless experience of **FASTAhandler**. 
+**FastaHandler**, mainly written in Python 3.12+ and ??, has 14 modules. The data input and output via CLI enables end-to-end file selection. Please note that all required input files (e.g. fasta and txt) must be prepared to have a seamless experience of **FASTAhandler**. 
 
 ![FASTAhandler Workflow](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Workflow.png)
 
@@ -452,4 +452,4 @@ Please see GitHub page.
 
 ## COPYRIGHT
 
-The full **FASTAhandler** is distributed under the MIT license. 
+The full **FastaHandler** is distributed under the MIT license. 
