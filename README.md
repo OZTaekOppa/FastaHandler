@@ -1,4 +1,4 @@
-# FASTAhandler
+# FastaHandler
 Python scripts designed for efficiently managing various types of FASTA file formats
 
 ![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Logo.png)
