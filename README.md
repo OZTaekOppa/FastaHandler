@@ -80,7 +80,7 @@ TranslateSequence       | tls   Find the translated sequences as a protein and o
 Use <module> --help for module usage.
 ```
 
-### multi2single
+### multi2single (m2s)
 - To convert a multi-fasta (multiline) into a single-line fasta.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multiline fasta file.
@@ -100,7 +100,7 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only only with Gb size)
 
-### renameid
+### renameid (rid)
 - To rename prefix IDs and headers from a single-line fasta.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -123,7 +123,7 @@ python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_re
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### prfxrename
+### prfxrename (prn)
 - To rename prefix IDs and headers from a single-line fasta with a user's input text file.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a tap-separated text file (e.g. old_IDs	new_IDs)
@@ -134,7 +134,8 @@ Example usage
 ```
 python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
 ```
-+ If the input fasta file is not a single-line fasta, please use the multi2single module first. 
++ If the input fasta file is not a single-line fasta, please use the multi2single module first.
++ The current script is useful for renaming partial IDs/headers with a user's specific input for fasta files (e.g. genome assemblies) downloaded from public databases such as NCBI and EBI.
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -146,7 +147,7 @@ python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out ou
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### prfxselrename
+### prfxselrename (psr)
 - To rename prefix IDs and headers from a single-line fasta with a user's input text file.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a tap-separated text file (e.g. old_IDs	new_IDs)
@@ -157,7 +158,8 @@ Example usage
 ```
 python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
 ```
-+ If the input fasta file is not a single-line fasta, please use the multi2single module first. 
++ If the input fasta file is not a single-line fasta, please use the multi2single module first.
++ The current script is useful for only selected IDs/headers with a user’s specific input, especially for the fasta files (e.g. genome assemblies with multiple scaffolds, but do not want to include and rename the scaffolds) downloaded from public databases.
 
 - Parameter explanation
 	1. python 3: Call python 3
@@ -169,7 +171,7 @@ python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### idextract
+### idextract (idx)
 - To extract matched IDs and their corresponding sequences.
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
@@ -191,7 +193,7 @@ python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --o
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### idextloct
+### idextloct (iel)
 - To extract matched IDs, locations and their corresponding sequences (focused on a single ID)
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
@@ -215,7 +217,7 @@ python3 idextloct.py --input-seq test_dna.fasta --header-id test3_3%week --start
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 	
-### idextloctmlt
+### idextloctmlt (iem)
 - To extract matched IDs, locations and their corresponding sequences (focused on multiple IDs)
   	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
@@ -237,7 +239,7 @@ python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_extract
 	--t: Specify thread numbers (integer only)
 	--mem: Specify memory numbers (integer only with Gb size)
 
-### revcomplt
+### revcomplt (rcp)
 - To make a reverse complement sequence
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -258,7 +260,7 @@ python3 revcomplt.py --input-seq test_dna.fasta --out output_revctest.fasta --t 
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### findcntdupl
+### findcntdupl (fcd)
 - To find and count the duplicated IDs and sequences from a multi-fasta file
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -279,7 +281,7 @@ python3 findcntdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### removedupl
+### removedupl (rvp)
 - To remove the duplicated IDs and sequences from a multi-fasta file
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -300,7 +302,7 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### subsetfa
+### subsetfa (ssf)
 - To make a subset of data with a sequence length filter option
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
@@ -322,7 +324,7 @@ python3 subsetfa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### extractptrn
+### extractptrn (xpt)
 - To make a subset of data with find, filter and extract options
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of patterns.
@@ -345,7 +347,7 @@ python3 extractptrn.py --input-seq test_dna1.fasta --input-pattern seq_pattern.t
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### eachfastats
+### eachfastats (efs)
 - To generate each line fasta statistic for a multi-line fasta
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multi-line fasta file.
@@ -366,7 +368,7 @@ python3 eachfastats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --m
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### allfastats
+### allfastats (afs)
 - To generate a summary of multi-line fasta statistics. 
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multi-line fasta file.
@@ -388,7 +390,7 @@ python3 allfastats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --me
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### asmstatsunlm
+### asmstatsunlm (mfs)
 - To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of the allfastats for multiple fasta files. 
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Unlimited multi-line fasta files.
@@ -410,7 +412,7 @@ python3 asmstatsunlm.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.f
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### concatenate
+### concatenate (ccf)
 - To make a concatenated fasta file for unlimited fasta files. 
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Multiple fasta files with the same prefix IDs.
@@ -431,8 +433,8 @@ python concatenate.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fas
 		+ --out: Indicate a concatenated output fasta file and its path
 		+ --t: Specify thread numbers (intergr only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
-
-### translatedna
+ 
+### translated (tls)
 - To find the translated sequences as a protein including the open reading frames (ORFs)
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Multline fasta files.
