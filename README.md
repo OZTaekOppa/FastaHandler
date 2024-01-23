@@ -32,18 +32,11 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 - !!! Please note, that programs and dependencies can also be installed via Bioconda. For any other issues, we highly encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
 
     ~~~
-    Create the virtual environment
-    Need to be updated
-    
-    Get source
-    Need to be updated
-    
-    Install packages
-    Need to be updated
-    
-    Run
-    Need to be updated
-    ~~~
+    FastaHandler does not require installation.
+    Just clone this repository, and run
+    ```
+    python3 {path}/fastahandler.py
+    ```
 
 ## License
 
