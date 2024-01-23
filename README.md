@@ -33,6 +33,7 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 - FastaHandler does not require installation.
 - Just clone this repository, and run
 ```
+git clone https://github.com/OZTaekOppa/FASTAhandler/
 python3 {path}/fastahandler.py
 ```
 
