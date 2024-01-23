@@ -30,13 +30,11 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 ## INSTALLATION
 - Please download the program from [this link](https://github.com/OZTaekOppa/FASTAhandler)
 - !!! Please note, that programs and dependencies can also be installed via Bioconda. For any other issues, we highly encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
-
-    ~~~
-    FastaHandler does not require installation.
-    Just clone this repository, and run
-    ```
-    python3 {path}/fastahandler.py
-    ```
+FastaHandler does not require installation.
+Just clone this repository, and run
+```
+python3 {path}/fastahandler.py
+```
 
 ## License
 
