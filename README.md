@@ -28,7 +28,7 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 
 
 ## INSTALLATION
-- Please download the program from [this link](https://github.com/OZTaekOppa/FASTAhandler)
+- Please check the program from [this link](https://github.com/OZTaekOppa/FASTAhandler)
 - !!! Please note, that programs and dependencies can also be installed via Bioconda. For any other issues, we highly encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
 - FastaHandler does not require installation.
 - Just clone this repository, and run
@@ -50,6 +50,8 @@ Please see the example dataset folder.
 **FastaHandler**, mainly written in Python 3.12+ and ??, has 14 modules. The data input and output via CLI enables end-to-end file selection. Please note that all required input files (e.g. fasta and txt) must be prepared to have a seamless experience of **FASTAhandler**. 
 
 ![FASTAhandler Workflow](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Workflow.png)
+
+### General Usage
 
 
 ### multi2single
