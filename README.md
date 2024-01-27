@@ -38,7 +38,7 @@ git clone https://github.com/OZTaekOppa/FASTAhandler/
 python3 {path}/fastahandler.py
 ```
 
-## License
+## LICENSE
 **FastaHandler** is available under the MIT license and incorporates various open-source software. For detailed information on the integrated Python packages, modules, and libraries, and their specific applications within **FastaHandler**, please refer to the [manuscript](https://www.biorxiv.org/XXXX)
 
 
