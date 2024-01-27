@@ -24,7 +24,7 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 
 ## STABLE (version 1.0.1)
 - Release date: January 2024
-- **FastaHandler** is a standalone Python application with 14 modules for manipulating FASTA files via interactive steps with open-source programs (See LICENSE). 
+- **FastaHandler** is a standalone Python application with 17 sub-modules for manipulating FASTA files via interactive steps with open-source programs (See LICENSE). 
 
 
 ## INSTALLATION
