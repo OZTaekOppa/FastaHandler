@@ -15,7 +15,7 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 + [STABLE](https://github.com/OZTaekOppa/FASTAhandler/blob/main/README.md#stable-version-00xxx)
 + [INSTALLATION](https://github.com/OZTaekOppa/FASTAhandler/blob/main/README.md#installation)
 + [LICENSE](https://github.com/OZTaekOppa/FASTAhandler/blob/main/README.md#license) 
-+ GETTING STARTED
++ [GETTING STARTED](https://github.com/OZTaekOppa/FASTAhandler/blob/main/README.md#getting-started)
 + FAQ
 + WIKI PAGE
 + AUTHORS
