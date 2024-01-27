@@ -85,6 +85,7 @@ Use <module> --help for module usage.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multiline fasta file.
 	+ Output: A single-line fasta.
+	+ Example file: [mltseq2sl](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/mltseq2sl.fa) in the example data folder. 
 
 Example usage
 ```
