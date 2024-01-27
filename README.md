@@ -46,7 +46,7 @@ python3 {path}/fastahandler.py
 Please refer to the example dataset folder for sample data and usage demonstrations.
 
 ## GETTING STARTED
-**FastaHandler** is developed primarily in Python 3.12+ and Biopython and features 17 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimize the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
+**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 17 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimize the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
 
 ![FASTAhandler Workflow](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Workflow.png)
 
@@ -58,23 +58,23 @@ version 1.0.1
 Usage: python3 fastahandler.py <module> <parameters>
 
 Modules:
-Multi2Single    | m2s   Convert a multi-fasta (multiline) into a single-line fasta.
-RenameId        | rid   Rename prefix IDs and headers.
-PrefixRename    | prn   Rename prefix IDs and headers with a user’s input.
-PrefixSelectRename      | psr   Rename prefix IDs and headers with a user’s input (Only).
-IdExtract       | idx   Extract matched IDs and their corresponding sequences.
-IdExtractLocation       | iel   Extract matched IDs, locations and their corresponding sequences.
-IdExtractLocationMultiple       | iem   Extract matched IDs, locations and their corresponding sequences (Multiple).
-ReverseComplement       | rcp   Make a reverse complement sequence.
-FindCountDuplication    | fcd   Find and count the duplicated IDs and sequences.
-RemoveDuplication       | rvd   Remove the duplicated IDs and sequences.
-SubsetFasta     | ssf   Make a subset of data with a sequence length filter.
-ExtractPattern  | xpt   Make a subset of data with find, filter and extract.
-EachFastaStats  | efs   Generate each line fasta statistic for a multi-line fasta.
-AllFastaStats   | afs   Generate a summary of multi-line fasta statistics.
-MultipleFastaStats      | mfs   Generate a summary of multi-line fasta statistics (Multiple).
-ConcatenateFasta        | ccf   Make a concatenated fasta file (Multiple).
-TranslateSequence       | tls   Find the translated sequences as a protein and open reading frames (ORFs).
+Multi2Single    		| m2s   	Convert a multi-fasta (multiline) into a single-line fasta.
+RenameId        		| rid   	Rename prefix IDs and headers.
+PrefixRename    		| prn   	Rename prefix IDs and headers with a user’s input.
+PrefixSelectRename      	| psr   	Rename prefix IDs and headers with a user’s input (Only).
+IdExtract       		| idx   	Extract matched IDs and their corresponding sequences.
+IdExtractLocation       	| iel   	Extract matched IDs, locations and their corresponding sequences.
+IdExtractLocationMultiple       | iem   	Extract matched IDs, locations and their corresponding sequences (Multiple).
+ReverseComplement       	| rcp   	Make a reverse complement sequence.
+FindCountDuplication    	| fcd   	Find and count the duplicated IDs and sequences.
+RemoveDuplication       	| rvd   	Remove the duplicated IDs and sequences.
+SubsetFasta     		| ssf   	Make a subset of data with a sequence length filter.
+ExtractPattern  		| xpt   	Make a subset of data with find, filter and extract.
+EachFastaStats  		| efs   	Generate each line fasta statistic for a multi-line fasta.
+AllFastaStats   		| afs   	Generate a summary of multi-line fasta statistics.
+MultipleFastaStats      	| mfs   	Generate a summary of multi-line fasta statistics (Multiple).
+ConcatenateFasta        	| ccf   	Make a concatenated fasta file (Multiple).
+TranslateSequence       	| tls   	Find the translated sequences as a protein and open reading frames (ORFs).
 
 Use <module> --help for module usage.
 ```
