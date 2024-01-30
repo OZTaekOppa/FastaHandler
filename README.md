@@ -1,7 +1,7 @@
 # FastaHandler
 A collection of Python scripts designed for the efficient management of various FASTA file formats.
 
-![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Logo.png)
+![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FastaHandler_Logo.png)
 
 
 ## Brief Background
@@ -25,12 +25,12 @@ Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: 
 
 ## STABLE (version 1.0.1)
 - Release date: January 2024
-- **FastaHandler** is a standalone Python application equipped with 17 sub-modules for interactive FASTA file manipulation, available as open-source (see [LICENSE](https://github.com/OZTaekOppa/FASTAhandler/blob/main/README.md#license)).
+- **FastaHandler** is a standalone Python application equipped with 17 sub-modules for interactive FASTA file manipulation, available as open-source (see [LICENSE](https://github.com/OZTaekOppa/FastaHandler/blob/main/README.md#license)).
 
 
 ## INSTALLATION
 - Access the program via [GitHub](https://github.com/OZTaekOppa/FASTAhandler)
-- Installation options include Bioconda or Python pip. For support, refer to [Issues on GitHub](https://github.com/OZTaekOppa/FASTAhandler/issues).
+- Installation options include Bioconda or Python pip. For support, refer to [Issues on GitHub](https://github.com/OZTaekOppa/FastaHandler/issues).
 - **FastaHandler** requires no separate installation process.
 - Just clone this repository, and run
 ```
@@ -48,7 +48,7 @@ Please refer to the example dataset folder for sample data and usage demonstrati
 ## GETTING STARTED
 **FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 17 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimize the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
 
-![FASTAhandler Workflow](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FASTAhandler_Workflow.png)
+![FASTAhandler Workflow](https://github.com/OZTaekOppa/FastaHandler/blob/main/images/FASTAhandler_Workflow.png)
 
 ### General Usage
 ```
@@ -84,7 +84,7 @@ Use <module> --help for module usage.
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multiline fasta file.
 	+ Output: A single-line fasta.
-	+ Example file: [mltseq2sl](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/mltseq2sl.fa) in the "example_data" folder. 
+	+ Example file: [mltseq2sl](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/mltseq2sl.fa) in the "example_data" folder. 
 
 Example usage
 ```
@@ -105,7 +105,7 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
 	+ Output: A single-line fasta with a new prefix ID name.
- 	+ Example file: [renameid_seq.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/renameid_seq.fa) in the "example_data" folder. 
+ 	+ Example file: [renameid_seq.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/renameid_seq.fa) in the "example_data" folder. 
 
 
 Example usage
@@ -129,7 +129,7 @@ python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_re
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a tap-separated text file (e.g. old_IDs	new_IDs)
 	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be also produced with its original IDs.
-	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
+	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
 
 
 Example usage
@@ -154,7 +154,7 @@ python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out ou
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a tap-separated text file (e.g. old_IDs	new_IDs)
 	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be discarded.
- 	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
+ 	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
 
 
 Example usage
@@ -179,7 +179,7 @@ python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
 	+ Output: A single-line fasta with extracted IDs and their corresponding sequences.
- 	+ Example file: [header_id.txt](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/header_id.txt) and [idextract.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/idextract.fa) in the "example_data" folder.
+ 	+ Example file: [header_id.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id.txt) and [idextract.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/idextract.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -202,7 +202,7 @@ python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --o
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
 	+ Output: A single-line fasta with extracted IDs and their corresponding sequences.
-	+ Example file: [header_id.txt](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/header_id.txt) and [idextloct.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/idextloct.fa) in the "example_data" folder.
+	+ Example file: [header_id.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id.txt) and [idextloct.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/idextloct.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -227,7 +227,7 @@ python3 idextloct.py --input-seq test_dna.fasta --header-id test3_3%week --start
   	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of IDs.
 	+ Output: A single-line fasta with extracted IDs and their corresponding sequences.
- 	+ Example file: [hdrmulti_id.txt](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/hdrmulti_id.txt), [idextract.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/idextract.fa) and [idextloct.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/idextloct.fa) in the "example_data" folder.
+ 	+ Example file: [hdrmulti_id.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/hdrmulti_id.txt), [idextract.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/idextract.fa) and [idextloct.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/idextloct.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -250,7 +250,7 @@ python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_extract
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
 	+ Output: A reverse complement single-line fasta.
- 	+ Example file: [revscomplt.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/revscomplt.fa) in the "example_data" folder.
+ 	+ Example file: [revscomplt.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/revscomplt.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -272,7 +272,7 @@ python3 revcomplt.py --input-seq test_dna.fasta --out output_revctest.fasta --t 
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
 	+ Output: A text with a duplication number.
-	+ Example file: [dupids.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/dupids.fa) in the "example_data" folder.
+	+ Example file: [dupids.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/dupids.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -294,7 +294,7 @@ python3 findcntdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
 	+ Output: A single-line fasta after removing updated IDs and sequences.
- 	+ Example file: [rmvdup.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/rmvdup.fa) in the "example_data" folder.
+ 	+ Example file: [rmvdup.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/rmvdup.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -316,7 +316,7 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file.
 	+ Output: A subseted single-line fasta.
- 	+ Example file: [subsetfa.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/subsetfa.fa) in the "example_data" folder.
+ 	+ Example file: [subsetfa.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/subsetfa.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -339,8 +339,8 @@ python3 subsetfa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A fasta file and a list of patterns.
 	+ Output: A extracted single-line fasta with IDs and their corresponding sequences.
- 	+ Example file: [find_ptrn.txt](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/find_ptrn.txt), [find_ptrn_mlt.txt
-](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/find_ptrn_mlt.txt), [find_ptrn_mlt_seq.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/find_ptrn_mlt_seq.fa), and [find_ptrn_seq.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/find_ptrn_seq.fa) in the "example_data" folder.
+ 	+ Example file: [find_ptrn.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/find_ptrn.txt), [find_ptrn_mlt.txt
+](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/find_ptrn_mlt.txt), [find_ptrn_mlt_seq.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/find_ptrn_mlt_seq.fa), and [find_ptrn_seq.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/find_ptrn_seq.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -364,7 +364,7 @@ python3 extractptrn.py --input-seq test_dna1.fasta --input-pattern seq_pattern.t
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multi-line fasta file.
 	+ Output: A summary of single-line fasta with its corresponding sequence length.
-	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -386,7 +386,7 @@ python3 eachfastats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --m
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A multi-line fasta file.
 	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -409,7 +409,7 @@ python3 allfastats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --me
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Unlimited multi-line fasta files.
 	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -432,7 +432,7 @@ python3 asmstatsunlm.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.f
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Multiple fasta files with the same prefix IDs.
 	+ Output: A single-line fasta with concatenated IDs and their corresponding sequences.
-  	+ Example file: [concat_seq1.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/concat_seq1.fa), [concat_seq2.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/concat_seq2.fa), [concat_seq3.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/concat_seq3.fa), [concat_seq4.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/concat_seq4.fa), and [concat_seq1.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/concat_seq5.fa) in the "example_data" folder.
+  	+ Example file: [concat_seq1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq1.fa), [concat_seq2.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq2.fa), [concat_seq3.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq3.fa), [concat_seq4.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq4.fa), and [concat_seq1.fa](https://github.com/OZTaekOppa/FastaHandlerr/blob/main/example_data/concat_seq5.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -455,7 +455,7 @@ python concatenate.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fas
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Multline fasta files.
 	+ Output: A single-line fasta with translation and selected ORFs (nucleotide and protein sequences).
-	+ Example file: [trnsldna.fa](https://github.com/OZTaekOppa/FASTAhandler/blob/main/example_data/trnsldna.fa) in the "example_data" folder.
+	+ Example file: [trnsldna.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/trnsldna.fa) in the "example_data" folder.
 
 Example usage
 ```
@@ -476,7 +476,7 @@ python translatedna.py --input-seq test_dna.fasta --out output/folder --t 1 --me
 
 ## FAQ
 
-We encourage users to use the [Issues](https://github.com/OZTaekOppa/FASTAhandler/issues).
+We encourage users to use the [Issues](https://github.com/OZTaekOppa/FastaHandler/issues).
 
 
 ## WIKI PAGE
