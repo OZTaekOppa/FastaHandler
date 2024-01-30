@@ -1,5 +1,5 @@
-# FASTAhandler multiline fasta assembly stats PyFastaStats created by Hyungtaek Jung
-# Unlimited multiple multi-fasta (multiline) files to calculate assembly stats
+# FastaHandler multiline fasta assembly stats PyFastaStats created by Hyungtaek Jung
+# Unlimited multiple-multi-fasta (multiline) files to calculate assembly stats
 # Example command: python3 multiasmstats_unlimt.py --input-seqs test1.fa test2.fa test3.fa test4.fa test5.fa --out multi_stats_ulmt.txt (w/ optional for --t cpu and --mem memory)
 
 
