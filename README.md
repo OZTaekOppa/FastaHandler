@@ -1,7 +1,7 @@
 # FastaHandler
 A collection of Python scripts designed for the efficient management of various FASTA file formats.
 
-![FASTAhandler Logo](https://github.com/OZTaekOppa/FASTAhandler/blob/main/images/FastaHandler_Logo.png)
+![FASTAhandler Logo](https://github.com/OZTaekOppa/Fastahandler/blob/main/images/FastaHandler_Logo.png)
 
 
 ## Brief Background
