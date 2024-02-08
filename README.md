@@ -432,7 +432,7 @@ python3 asmstatsunlm.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.f
  	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: Multiple fasta files with the same prefix IDs.
 	+ Output: A single-line fasta with concatenated IDs and their corresponding sequences.
-  	+ Example file: [concat_seq1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq1.fa), [concat_seq2.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq2.fa), [concat_seq3.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq3.fa), [concat_seq4.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq4.fa), and [concat_seq1.fa](https://github.com/OZTaekOppa/FastaHandlerr/blob/main/example_data/concat_seq5.fa) in the "example_data" folder.
+  	+ Example file: [concat_seq1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq1.fa), [concat_seq2.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq2.fa), [concat_seq3.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq3.fa), [concat_seq4.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq4.fa), and [concat_seq1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/concat_seq5.fa) in the "example_data" folder.
 
 Example usage
 ```
