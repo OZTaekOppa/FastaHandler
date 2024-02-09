@@ -93,7 +93,7 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. multi2singleline.py:  Call multi2single module
+	1. multi2single.py:  Call multi2single module
 	1. python3 multi2singleline.py --help: Check help menu
 		+ --input-seq: Indicate an input multi-fasta (multiline) fasta file and its path
 		+ --out: Indicate an output single-line fasta file and its path
@@ -167,7 +167,7 @@ python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out
 - Parameter explanation
 	1. python 3: Call python 3
 	1. prfxselrename.py:  Call prfxselrename module
-	1. python3 renameid.py --help: Check help menu
+	1. python3 prfxselrename.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --input-id: Indicate a new tap-separated prefix ID/header name file (accept both integer and strings but no space)
 		+ --out: Indicate an output renamed single-line fasta file and its path
@@ -212,7 +212,7 @@ python3 idextloct.py --input-seq test_dna.fasta --header-id test3_3%week --start
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. idextractlocation.py:  Call idextloct module
+	1. idextloct.py:  Call idextloct module
 	1. python3 idextloct.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --header-id: Indicate an input ID and header (without ">") name and pattern
@@ -237,8 +237,8 @@ python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_extract
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. idextractlocamulti.py:  Call idextloctmlt module
-	1. python3 idextractlocamulti.py --help: Check help menu
+	1. idextloctmlt.py:  Call idextloctmlt module
+	1. python3 idextloctmlt.py --help: Check help menu
 	--input-seq: Indicate an input single-line fasta file and its path
 	--input-extract: Indicate an input ID and header (without ">") text file (a tap-separated) and its path including start and end positions (please use -1 value due to the python index)
 	--out: Indicate an output ID matched and extracted single-line fasta file and its path
@@ -260,7 +260,7 @@ python3 revcomplt.py --input-seq test_dna.fasta --out output_revctest.fasta --t 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. revcomplement.py:  Call revcomplt module
+	1. revcomplt.py:  Call revcomplt module
 	1. python3 revcomplt.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --out: Indicate a reverse complement converted output single-line fasta file and its path
@@ -282,7 +282,7 @@ python3 findcntdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. findcountdupl.py:  Call findcntdupl module
+	1. findcntdupl.py:  Call findcntdupl module
 	1. python3 findcntdupl.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --out: Indicate an output text file after finding and counting the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
@@ -326,7 +326,7 @@ python3 subsetfa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. subsetfasta.py:  Call subsetfa module
+	1. subsetfa.py:  Call subsetfa module
 	1. python3 subsetfa.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --filter: Indicate a length size to filter out
@@ -350,7 +350,7 @@ python3 extractptrn.py --input-seq test_dna1.fasta --input-pattern seq_pattern.t
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. extractpattern.py:  Call extractptrn module
+	1. extractptrn.py:  Call extractptrn module
 	1. python3 extractptrn.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --input-pattern: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
