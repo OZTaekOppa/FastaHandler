@@ -9,7 +9,7 @@ A collection of Python scripts designed for the efficient management of various 
 
 
 ## Citation
-Hyungtaek Jung, Kirat Alreja, Kosar Hooshmand, Hadi Nazem-Bokaee, Hardip Patel: **FastaHandler**: An easy Python-based toolset for handling fasta files, [PLoS Comp Biol Submitted](https://www.biorxiv.org/XXXX).
+Hyungtaek Jung et al. 2024: **FastaHandler**: An easy Python-based toolset for handling fasta files, [PLoS Comp Biol Submitted](https://www.biorxiv.org/XXXX).
 
 
 ## Contents:
