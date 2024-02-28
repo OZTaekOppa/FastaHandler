@@ -15,10 +15,10 @@ Multi2Single\t| m2s\tConvert a multi-fasta (multiline) into a single-line fasta.
 RenameId\t| rid\tRename prefix IDs and headers.
 PrefixRename\t| prn\tRename prefix IDs and headers with a user’s input.
 PrefixSelectRename\t| psr\tRename prefix IDs and headers with a user’s input (Only).
+PrefixFindReplaceRename\t| pfr\tReplace and rename prefix IDs and headers with a user’s input (Only).
 IdExtract\t| idx\tExtract matched IDs and their corresponding sequences.
 IdExtractLocation\t| iel\tExtract matched IDs, locations and their corresponding sequences.
-IdExtractLocationMultiple\t| iem\tExtract matched IDs, locations and their corresponding sequences (Mu
-ltiple).
+IdExtractLocationMultiple\t| iem\tExtract matched IDs, locations and their corresponding sequences (Multiple).
 ReverseComplement\t| rcp\tMake a reverse complement sequence.
 FindCountDuplication\t| fcd\tFind and count the duplicated IDs and sequences.
 RemoveDuplication\t| rvd\tRemove the duplicated IDs and sequences.
@@ -41,6 +41,8 @@ module_map = {
     'prn': 'prfxrename.py',
     'PrefixSelectRename': 'prfxselrename.py',
     'psr': 'prfxselrename.py',
+    'PrefixFindReplaceRename': 'prfxfindreplace.py',
+    'pfr': 'prfxfindreplace.py',
     'IdExtract': 'idextract.py',
     'idx': 'idextract.py',
     'IdExtractLocation': 'idextloct.py',
