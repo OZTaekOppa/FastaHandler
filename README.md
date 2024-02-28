@@ -62,6 +62,7 @@ Multi2Single    		| m2s   	Convert a multi-fasta (multiline) into a single-line 
 RenameId        		| rid   	Rename prefix IDs and headers.
 PrefixRename    		| prn   	Rename prefix IDs and headers with a user’s input.
 PrefixSelectRename      	| psr   	Rename prefix IDs and headers with a user’s input (Only).
+PrefixFindReplaceRename      	| pfr   	Replace and rename prefix IDs and headers with a user’s input (Only).
 IdExtract       		| idx   	Extract matched IDs and their corresponding sequences.
 IdExtractLocation       	| iel   	Extract matched IDs, locations and their corresponding sequences.
 IdExtractLocationMultiple       | iem   	Extract matched IDs, locations and their corresponding sequences (Multiple).
