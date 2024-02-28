@@ -131,12 +131,11 @@ python3 renameid.py --input-seq test_dna.fasta --new-name FunNGS --out output_re
 	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be also produced with its original IDs.
 	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
 
-
 Example usage
 ```
 python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
 ```
-+ Use the multi2single module first if your input FASTA file isn't in single-line format.
++ Although the script can process multiline FASTA files, if you're unsure about your input FASTA file format, it's recommended to first convert it to single-line format using the multi2single module.
 + The script is ideal for renaming specific parts of IDs/headers in FASTA files, such as those from genome assemblies acquired from public databases like NCBI and EBI, based on user input.
 
 - Parameter explanation
@@ -156,12 +155,11 @@ python3 prfxrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out ou
 	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be discarded.
  	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
 
-
 Example usage
 ```
 python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
 ```
-+ Use the multi2single module first if your input FASTA file isn't in single-line format.
++ Although the script can process multiline FASTA files, if you're unsure about your input FASTA file format, it's recommended to first convert it to single-line format using the multi2single module.
 + The script is effective for selectively renaming IDs/headers in FASTA files (with a user's specific input), such as genome assemblies from databases, where you want to exclude and not rename certain elements like scaffolds.
 
 - Parameter explanation
@@ -170,6 +168,31 @@ python3 prfxselrename.py --input-seq test_dna.fasta --input-id new_ids.txt --out
 	1. python3 prfxselrename.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --input-id: Indicate a new tap-separated prefix ID/header name file (accept both integer and strings but no space)
+		+ --out: Indicate an output renamed single-line fasta file and its path
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only with Gb size)
+
+### prfxfindreplace (pfr)
+- To rename prefix IDs and headers from a single-line fasta with a user's input text file.
+	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A fasta file and a find and replace pattern (e.g. old_IDs	new_IDs)
+	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Worked as "sed" command.
+ 	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
+
+Example usage
+```
+python3 prfxfindreplace.py --input-seq --find-ptrn hifiasm --replace Assembly --out output_reN.fasta --t 1 --mem 2
+```
++ Although the script can process multiline FASTA files, if you're unsure about your input FASTA file format, it's recommended to first convert it to single-line format using the multi2single module.
++ The script is effective for selectively renaming IDs/headers in FASTA files (with a user's specific input), such as genome assemblies from databases, where you want to exclude and not rename certain elements like scaffolds.
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. prfxselrename.py:  Call prfxselrename module
+	1. python3 prfxselrename.py --help: Check help menu
+		+ --input-seq: Indicate an input single-line fasta file and its path
+		+ --find-ptrn: Indicate a pattern in prefix ID/header name file (accept both integer and strings but no space)
+  		+ --replace: Indicate a new prefix ID/header name for replacement
 		+ --out: Indicate an output renamed single-line fasta file and its path
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
