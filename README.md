@@ -189,8 +189,8 @@ python3 prfxfindreplace.py --input-seq --find-ptrn hifiasm --replace Assembly --
 
 - Parameter explanation
 	1. python 3: Call python 3
-	1. prfxselrename.py:  Call prfxselrename module
-	1. python3 prfxselrename.py --help: Check help menu
+	1. prfxfindreplace.py:  Call prfxfindreplace module
+	1. python3 prfxfindreplace.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --find-ptrn: Indicate a pattern in prefix ID/header name file (accept both integer and strings but no space)
   		+ --replace: Indicate a new prefix ID/header name for replacement
