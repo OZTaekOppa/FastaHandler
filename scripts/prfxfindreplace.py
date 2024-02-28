@@ -1,5 +1,6 @@
-# FASTAhandler created by Hyungtaek Jung
-# A multi-fasta (multiline) file to a single-line fasta with replacing ID/Prefix name files like "sed" command
+# FastaHandler rename only selected ID pattern like "sed" command created by Hyungtaek Jung
+# A multi-fasta (multiline) file to a single-line fasta with replacing ID/Prefix name files only in the input id file
+# Example command: python3 prfxfindreplace.py --input-seq test.fa --find-ptrn hifiasm --replace Assembly --out test_out.fa (w/ optional for --t cpu and --mem memory)
 
 #!/usr/bin/env python3
 
@@ -68,6 +69,7 @@ def main():
     parser.add_argument("--replace", required=True, help="String to replace the pattern with.")
     parser.add_argument("--out", required=True, help="Output fasta file path.")
     parser.add_argument("--t", type=int, default=1, help="Number of threads for multiprocessing.")
+    parser.add_argument("--mem", type=int, default=10, help="Amount of memory in gigabytes.")
     args = parser.parse_args()
 
     replace_pattern_in_fasta(args.input_seq, args.find_ptrn, args.replace, args.out, args.t)
