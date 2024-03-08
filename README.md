@@ -5,7 +5,7 @@ A collection of Python scripts designed for the efficient management of various 
 
 
 ## Brief Background
-**FastaHandler**, created by Hyungtaek Jung and the team at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 18 work modules to ease input/output processes, covering various aspects of FASTA data analysis including post-processing and format conversion. Optimized for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. Users should note that processing large datasets may require substantial computational resources on Linux, HPC or Cloud platforms.
+**FastaHandler**, created by Hyungtaek Jung and the team at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 19 work modules to ease input/output processes, covering various aspects of FASTA data analysis including post-processing and format conversion. Optimized for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. Users should note that processing large datasets may require substantial computational resources on Linux, HPC or Cloud platforms.
 
 
 ## Citation
@@ -46,7 +46,7 @@ python3 {path}/fastahandler.py
 Please refer to the example dataset folder for sample data and usage demonstrations.
 
 ## GETTING STARTED
-**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 17 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimize the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
+**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 19 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimize the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
 
 ![FASTAhandler Workflow](https://github.com/OZTaekOppa/FastaHandler/blob/main/images/FASTAhandler_Workflow.png)
 
@@ -59,6 +59,7 @@ Usage: python3 fastahandler.py <module> <parameters>
 
 Modules:
 Multi2Single    		| m2s   	Convert a multi-fasta (multiline) into a single-line fasta.
+Gfa2Fasta	    		| g2a   	Convert a gfa (Graphical Fragment Assembly) into a single-line fasta.
 RenameId        		| rid   	Rename prefix IDs and headers.
 PrefixRename    		| prn   	Rename prefix IDs and headers with a user’s input.
 PrefixSelectRename      	| psr   	Rename prefix IDs and headers with a user’s input (Only).
@@ -101,6 +102,27 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only only with Gb size)
 
+### gfa2fa (g2a)
+- To convert a gfa (Graphical Fragment Assembly) into a single-line fasta.
+	+ Requirement: The script of Python/bash requires a Python library.
+	+ Input: A gfa file.
+	+ Output: A single-line fasta.
+	+ Example file: [gfa2fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/gfa2fa.fa) in the "example_data" folder. 
+
+Example usage
+```
+python3 gfa2fa.py --input-gfa test_dna.gfa --out test_output_sl.fasta --t 1 --mem 2
+```
+
+- Parameter explanation
+	1. python 3: Call python 3
+	1. gfa2fa.py:  Call gfa2fa module
+	1. python3 gfa2fa.py --help: Check help menu
+		+ --input-gfa: Indicate an input gfa file and its path
+		+ --out: Indicate an output single-line fasta file and its path
+		+ --t: Specify thread numbers (integer only)
+		+ --mem: Specify memory numbers (integer only only with Gb size)
+  
 ### renameid (rid)
 - To rename prefix IDs and headers from a single-line fasta.
 	+ Requirement: The script of Python/bash requires a Python library.
