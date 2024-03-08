@@ -107,7 +107,7 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 	+ Requirement: The script of Python/bash requires a Python library.
 	+ Input: A gfa file.
 	+ Output: A single-line fasta.
-	+ Example file: [gfa2fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/gfa2fa.fa) in the "example_data" folder. 
+	+ Example file: [gfa2fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/gfa2fa.gfa) in the "example_data" folder. 
 
 Example usage
 ```
