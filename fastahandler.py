@@ -12,6 +12,7 @@ Usage: python3 fastahandler.py <module> <parameters>
 
 Modules:
 Multi2Single\t| m2s\tConvert a multi-fasta (multiline) into a single-line fasta.
+Gfa2Fasta\t| g2a\tConvert a gfa into a single-line fasta.
 RenameId\t| rid\tRename prefix IDs and headers.
 PrefixRename\t| prn\tRename prefix IDs and headers with a user’s input.
 PrefixSelectRename\t| psr\tRename prefix IDs and headers with a user’s input (Only).
@@ -35,6 +36,8 @@ Use <module> --help for module usage.'''
 module_map = {
     'Multi2Single': 'multi2single.py',
     'm2s': 'multi2single.py',
+    'Gfa2Fasta': 'gfa2fa.py',
+    'g2a': 'gfa2fa.py',
     'RenameId': 'renameid.py',
     'rid': 'renameid.py',
     'PrefixRename': 'prfxrename.py',
