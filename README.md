@@ -229,7 +229,7 @@ python3 prfxfindreplace.py --input-seq --find-ptrn hifiasm --replace Assembly --
 
 Example usage
 ```
-python3 idextract.py --input-seq test_dna.fasta --input-header header_id.txt --out output_extracted.fasta --t 1 --mem 2
+python3 idextract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out output_extracted.fasta --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 	
