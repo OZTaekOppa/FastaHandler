@@ -5,7 +5,7 @@ A collection of Python scripts designed for the efficient management of various 
 
 
 ## Brief Background
-**FastaHandler**, created by Hyungtaek Jung and the team at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 19 work modules to ease input/output processes, covering various aspects of FASTA data analysis including post-processing and format conversion. Optimized for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. Users should note that processing large datasets may require substantial computational resources on Linux, HPC or Cloud platforms.
+**FastaHandler**, created by Hyungtaek Jung at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 19 work modules to ease input/output processes, covering various aspects of FASTA data analysis including post-processing and format conversion. Optimized for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. Users should note that processing large datasets may require substantial computational resources on Linux, HPC or Cloud platforms.
 
 
 ## Citation
@@ -238,7 +238,7 @@ python3 idextract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out 
 	1. idextract.py:  Call idextract module
 	1. python3 idextract.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
-		+ --input-header: Indicate an input ID and header (without ">") text file and its path
+		+ --input-hdr: Indicate an input ID and header (without ">") text file and its path
 		+ --out: Indicate an output ID matched and extracted single-line fasta file and its path
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
@@ -277,7 +277,7 @@ python3 idextloct.py --input-seq test_dna.fasta --header-id test3_3%week --start
 
 Example usage
 ```
-python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_extract.txt --out output_extest.fasta --t 1 --mem 2
+python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_ext.txt --out output_extest.fasta --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -286,7 +286,7 @@ python3 idextloctmlt.py --input-seq test_dna.fasta --input-extract input_extract
 	1. idextloctmlt.py:  Call idextloctmlt module
 	1. python3 idextloctmlt.py --help: Check help menu
 	--input-seq: Indicate an input single-line fasta file and its path
-	--input-extract: Indicate an input ID and header (without ">") text file (a tap-separated) and its path including start and end positions (please use -1 value due to the python index)
+	--input-ext: Indicate an input ID and header (without ">") text file (a tap-separated) and its path including start and end positions (please use -1 value due to the python index)
 	--out: Indicate an output ID matched and extracted single-line fasta file and its path
 	--t: Specify thread numbers (integer only)
 	--mem: Specify memory numbers (integer only with Gb size)
@@ -344,7 +344,7 @@ python3 findcntdupl.py --input-seq test_dna2.fasta --out output_files.txt --t 1 
 
 Example usage
 ```
-python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fasta --t 1 --mem 2
+python3 removedupl.py --input-seq test_dna2.fasta --out output_testdupl.fasta --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -353,7 +353,7 @@ python3 removedupl.py --input-seq test_dna2.fasta --outfasta output_testdupl.fas
 	1. removedupl.py:  Call removedupl module
 	1. python3 removedupl.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
-		+ --outfasta: Indicate an output fasta file after removing the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
+		+ --out: Indicate an output fasta file after removing the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
@@ -390,7 +390,7 @@ python3 subsetfa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset
 
 Example usage
 ```
-python3 extractptrn.py --input-seq test_dna1.fasta --input-pattern seq_pattern.txt --input-length 45 --out output_pattern.fasta --t 1 --mem 2
+python3 extractptrn.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.txt --len-over 45 --out output_pattern.fasta --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -399,8 +399,8 @@ python3 extractptrn.py --input-seq test_dna1.fasta --input-pattern seq_pattern.t
 	1. extractptrn.py:  Call extractptrn module
 	1. python3 extractptrn.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
-		+ --input-pattern: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
-		+ --input-length: Indicate a length size to filter out
+		+ --input-ptrn: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
+		+ --len-over: Indicate a length size to filter out
 		+ --out: Indicate an output fasta file after filtering the length size (integer only)
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
