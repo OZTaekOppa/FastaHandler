@@ -27,7 +27,6 @@ def read_fasta(file_path):
             line = line.strip()
             if line.startswith('>'):
                 current_header = line[1:]
-                # Initialize the count for each header
                 if current_header not in sequences:
                     sequences[current_header] = 1
                 else:
@@ -36,7 +35,6 @@ def read_fasta(file_path):
     return sequences
 
 def write_header_counts(headers, output_path):
-    # Check if the output_path is a directory
     if os.path.isdir(output_path):
         output_path = os.path.join(output_path, "out_header_count.txt")
 
@@ -48,18 +46,18 @@ def write_header_counts(headers, output_path):
 def parse_args():
     parser = argparse.ArgumentParser(description="Remove duplicates from a multi-line FASTA file and count occurrences of each header.")
     parser.add_argument("--input-seq", required=True, help="Path to the input multi-line FASTA file.")
-    parser.add_argument("--output", default="./", help="Path to the output file or directory for header counts.")
-    parser.add_argument("--t", type=int, default=1, help="Number of CPUs with only numbers (integers). Default: 1.")
-    parser.add_argument("--mem", type=int, default=10, help="Number of memory in gigabytes with only numbers (integers). Default: 10.")
+    parser.add_argument("--output", "--out", default="./", help="Path to the output file or directory for header counts.")
+    parser.add_argument("--t", type=int, default=1, help="Number of CPUs (must be a positive integer). Default: 1.")
+    parser.add_argument("--mem", type=int, default=10, help="Memory in gigabytes (must be a positive integer). Default: 10.")
     args = parser.parse_args()
 
     if not os.path.exists(args.input_seq):
         sys.exit("Error: Input FASTA file not found or inaccessible.")
 
-    if not isinstance(args.t, int) or args.t <= 0:
+    if args.t <= 0:
         sys.exit("Error: Number of CPUs must be a positive integer.")
 
-    if not isinstance(args.mem, int) or args.mem <= 0:
+    if args.mem <= 0:
         sys.exit("Error: Memory must be a positive integer.")
 
     return args
@@ -83,7 +81,6 @@ def unzip_file(file_path):
             with open(unzip_path, 'wb') as f_out:
                 f_out.write(f_in.read())
     else:
-        # Check compressed file and extract it
         unzip_path = os.path.dirname(os.path.abspath(file_path))
 
     return unzip_path
@@ -138,13 +135,9 @@ def main():
     logging.info(f"Number of CPUs: {args.t}")
     logging.info(f"Memory (GB): {args.mem}")
 
-    # Read multi-line FASTA and convert to single-line
     sequences = read_fasta(args.input_seq)
-
-    # Write the header counts to a file
     write_header_counts(sequences, args.output)
 
-    # Remove duplicates
     unzip_path = unzip_file(args.input_seq)
     input_seq_file = os.path.join(unzip_path, os.path.basename(args.input_seq))
 
@@ -152,10 +145,9 @@ def main():
     header_count = find_duplicates(index)
     unique_headers, _ = remove_duplicates(index, header_count)
 
-    # Write the output fasta file
     if args.output:
         if not os.path.exists(args.output):
-            os.makedirs(args.output)  # Create the output directory if it doesn't exist
+            os.makedirs(args.output)
     else:
         args.output = os.path.join(os.getcwd(), "output_files")
 
@@ -163,4 +155,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
