@@ -20,7 +20,7 @@ EachFastaStats\t| each_fa_stats\tGenerate each line fasta statistic for a multi-
 ExtractPattern\t| extract_pattern\tMake a subset of data with find, filter and extract.
 FindAnchorTrim\t| find_anchor_trim\tMake a subset of fasta with find, anchor, trim, and extract.
 FindCountDuplication\t| find_count_duplicate\tFind and count the duplicated IDs and sequences.
-FindMergeFasta\t| find_merge_fa\tFind and merge fasta files if they matched with a certain pattern.
+FindMergeFasta\t| find_merge_fa\tFind and merge fasta files if they match a certain pattern.
 Gfa2Fasta\t| gfa2fa\tConvert a gfa into a single-line fasta.
 IdExtractLocation\t| id_extract_location\tExtract matched IDs, locations and their corresponding sequences.
 IdExtractLocationMultiple\t| id_extract_multi_location\tExtract matched IDs, locations and their corresponding sequences (Multiple).
@@ -35,7 +35,7 @@ PrefixSelectRename\t| prefix_select_rename\tRename prefix IDs and headers with a
 RemoveDuplication\t| remove_duplicate\tRemove the duplicated IDs and sequences.
 RenameId\t| rename_id\tRename prefix IDs and headers.
 ReverseComplement\t| reverse_complement\tMake a reverse complement sequence.
-SizePatternSearch\t| size_pattern_search\tFind unique and similariy sequecnes against its own input sequecne
+SizePatternSearch\t| size_pattern_search\tFind unique and similar sequences against its own input sequence
 SubsetFasta\t| subset_fa\tMake a subset of data with a sequence length filter.
 TranslateSequence\t| translate_dna\tFind the translated sequences as a protein and open reading frames (ORFs).
 
