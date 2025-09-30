@@ -372,7 +372,7 @@ python3 id_extract_multi_location.py --input-seq test_dna.fasta --input-extract 
 	--mem: Specify memory numbers (integer only with Gb size)
 
 
-### id_extract (idx)
+### id_extract
 - To extract matched IDs and their corresponding sequences.
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A fasta file and a list of IDs.
@@ -396,30 +396,29 @@ python3 id_extract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### multi2ach (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+### multi2each (다시 확인_OK)
+- To convert a multi-line FASTA into a single-line format for each FASTA header.
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
+	+ Input: A multi-line fasta file.
+	+ Output: A single-line format for each FASTA header.
   	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 multi2each.py --input-seq test.fa --out output_dir --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. multi2each.py:  Call the multi2each module
+	1. python3 multi2each.py --help: Check help menu
+		+ --input-seqs: Indicate an input multi-line fasta file and its path
+		+ --out: Indicate an output folder with each FASTA header
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### multi2single (m2s)
+### multi2single
 - To convert a multi-fasta (multiline) into a single-line fasta.
 	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A multiline fasta file.
@@ -441,26 +440,28 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### overlap_split (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+### overlap_split (다시 확인_OK)
+- To generate split overlapping fragments from a long single-FASTA sequence, with a user-specified overlapping size.
+- Two new FASTA files (e.g. *_a.fa and *_b.fa) are generated for every sequence, preserving safe, clean versions of the original headers.
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Input: A long single-FASTA sequence file.
+	+ Output: Paired FASTA files by overlapping size, with a summary of index and overlapping statistics.
+  	+ Example file: [anchor_ref_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/anchor_ref_asm.fa) in the "example_data" folder.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_dir --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
++ Please note that the --overlap-size should be >= 0.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. overlap_split.py:  Call the aoverlap_split module
+	1. python3 overlap_split.py --help: Check help menu
+		+ --input-seqs: Indicate an input long single-FASTA sequence file
+        + --overlap-size: A user-specified overlap added to the first half to create an overlapping region
+		+ --out: Indicate an output folder with the summary of overlap statistics
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
