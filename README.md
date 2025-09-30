@@ -9,7 +9,7 @@ A collection of Python scripts designed for the efficient management of various 
 For much larger datasets, users should anticipate higher computational demands and consider running on Linux, HPC, or cloud platforms. **FastaHandler** is designed to help researchers perform FASTA manipulations quickly and reproducibly, complementing existing bioinformatics tools and supporting high standards of reproducibility in the NGS era.
 
 ## Citation
-Hyungtaek Jung et al. 2024: **FastaHandler**: An easy Python-based toolset for handling fasta files, [Genetics TBA](https://www.biorxiv.org/XXXX).
+Hyungtaek Jung. 2025: **FastaHandler**: An easy Python-based toolset for handling fasta files, [Genetics TBA](https://www.biorxiv.org/XXXX).
 
 
 ## Contents:
