@@ -105,7 +105,7 @@ python3 all_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. allfastats.py:  Call the allfastats module
+	1. all_fa_stats.py:  Call the all_fa_stats module
 	1. python3 all_fa_stats.py --help: Check help menu
 		+ --input-seq: Indicate an input multi-line fasta file and its path
 		+ --out: Indicate an output text file with the summary of statistics
@@ -128,7 +128,7 @@ python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_d
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
+	1. asm_stats_unlimit.py:  Call the asm_stats_unlimit module
 	1. python3 asm_stats_unlimit.py --help: Check help menu
 		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
 		+ --out: Indicate an output text file with the summary of statistics
@@ -145,14 +145,14 @@ python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_d
 
 Example usage
 ```
-python3 chr_pansn_extract.py --input-fa test_asm.fasta --output Outfolder (--t and --mem optional)
+python3 chr_pansn_extract.py --input-fa test_asm.fasta --output Outfolder --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + Please note that the chr_pansn_extract module groups sequences by CL prefix. While it is useful for pangenome, genome and transcriptome analyses, users need to modify the prefix name based on their requirement. 
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the chr_pansn_extract module
+	1. chr_pansn_extract.py:  Call the chr_pansn_extract module
 	1. python3 chr_pansn_extract.py --help: Check help menu
 		+ --input-fa: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
 		+ --out: A clean set of per-group fasta with extracted IDs and their corresponding sequences.
@@ -175,7 +175,7 @@ python concatenate_fa.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. concatenate.py:  Call the concatenate_fa module
+	1. concatenate_fa.py:  Call the concatenate_fa module
 	1. python3 concatenate_fa.py --help: Check help menu
 		+ --input-seqs: Indicate input multiple single-line fasta files and their path (Separated by a space for each new fasta file)
 		+ --out: Indicate a concatenated output fasta file and its path
@@ -197,7 +197,7 @@ python3 each_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 -
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. eachfastats.py:  Call the each_fa_stats module
+	1. each_fa_stats.py:  Call the each_fa_stats module
 	1. python3 each_fa_stats.py --help: Check help menu
 		+ --input-seq: Indicate an input multi-line fasta file and its path
 		+ --out: Indicate an output text file with the sequence length
@@ -220,7 +220,7 @@ python3 extract_pattern.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. extractptrn.py:  Call the extract_pattern module
+	1. extract_pattern.py:  Call the extract_pattern module
 	1. python3 extract_pattern.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --input-ptrn: Indicate an input text file and its path to find and filter a specific sequence pattern (accept reverse complement sequences)
@@ -230,26 +230,28 @@ python3 extract_pattern.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### find_anchor_trim (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+### find_anchor_trim (다시 확인_OK)
+- To generate a trimmed sequence from two anchor sequences and positions, considering mismatches, identity and alignment statistics. 
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Input: A single-line reference fasta file and two anchor fasta sequences. 
+	+ Output: A trimmed sequence along with its summary text file (e.g. indexes, mismatches, identity and alignment statistics).
+  	+ Example file: [anchor_ref_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/[anchor_ref_asm.fa), [find_anchor1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/[find_anchor1.fa), and [find_anchor2.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/[find_anchor2.fa) in the "example_data" folder.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 find_anchor_trim.py --input-fa ref_seq.fa --anchor1-fa anchor1_seq.fa --anchor2-fa anchor2_seq.fa --out ./ --t 1 --mem 10
 ```
-+ If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
++ If your input reference and anchor FASTA files are in multi-line format, the script will automatically convert them to single-line format for processing (embedded pipeline).
++ A trimmed sequence and its summary of anchor-defined genomic regions for downstream analyses.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. find_anchor_trim.py:  Call the find_anchor_trim module
+	1. python3 find_anchor_trim.py --help: Check help menu
+		+ --input-fa: Indicate a reference input fasta file and its path
+  		+ --anchor1-fa: Indicate the first anchor fasta file and its path
+    	+ --anchor2-fa: Indicate the second anchor fasta file and its path
+		+ --out: Indicate an output folder (a trimmed sequence with the summary of statistics)
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
@@ -268,33 +270,33 @@ python3 find_count_duplicate.py --input-seq test_dna2.fasta --out output_files.t
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. findcntdupl.py:  Call the find_count_duplicate module
+	1. find_count_duplicate.py:  Call the find_count_duplicate module
 	1. python3 find_count_duplicate.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --out: Indicate an output text file after finding and counting the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### find_merge_fa (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+### find_merge_fa (다시 확인_OK)
+- To generate a merged fasta file from multiple fasta files in the same folder with a specific filename-matching pattern (*asm_chr1.fa in the --pattern-fa). 
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Input: A folder that contains multiple fasta files 
+	+ Output: A clean merged fasta file grouping by the specific file-name matching patterns (e.g. prefix name of the file: *asm_chr1.fa).
+  	+ Example file: An indication of the specific filename-matching pattern in the --pattern-fa (e.g. *asm_chr1.fa) is required.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 find_merge_fa.py --input-folder ./ --pattern-fa "*asm_chr1.fasta" --out ./output_merge_files.fa --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. find_merge_fa.py:  Call the find_merge_fa module
+	1. python3 find_merge_fa.py --help: Check help menu
+		+ --input-folder: Indicate an input folder that contains multiple fasta files
+        + --pattern-fa: Indicate a specific filename-matching pattern
+		+ --out: Indicate an output merged fasta file
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
@@ -335,7 +337,7 @@ python3 id_extract_location.py --input-seq test_dna.fasta --header-id test3_3%we
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. idextloct.py:  Call the id_extract_location module
+	1. id_extract_location.py:  Call the id_extract_location module
 	1. python3 id_extract_location.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --header-id: Indicate an input ID and header (without ">") name and pattern
@@ -361,10 +363,10 @@ python3 id_extract_multi_location.py --input-seq test_dna.fasta --input-extract 
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. idextloctmlt.py:  Call the id_extract_multi_location module
+	1. id_extract_multi_location.py:  Call the id_extract_multi_location module
 	1. python3 id_extract_multi_location.py --help: Check help menu
 	--input-seq: Indicate an input single-line fasta file and its path
-	--input-ext: Indicate an input ID and header (without ">") text file (a tab-separated) and its path including start and end positions (please use -1 value due to the Python index)
+	--input-ext: Indicate an input ID and header (without ">") text file (a tab-separated) and its path, including start and end positions (please use -1 value due to the Python index)
 	--out: Indicate an output ID matched and extracted single-line fasta file and its path
 	--t: Specify thread numbers (integer only)
 	--mem: Specify memory numbers (integer only with Gb size)
@@ -385,8 +387,8 @@ python3 id_extract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out
 	
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. idextract.py:  Call the id_extract module
-	1. python3 idextract.py --help: Check help menu
+	1. id_extract.py:  Call the id_extract module
+	1. python3 id_extract.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --input-hdr: Indicate an input ID and header (without ">") text file and its path
 		+ --out: Indicate an output ID matched and extracted single-line fasta file and its path
