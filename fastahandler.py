@@ -4,6 +4,7 @@
 
 import sys
 import subprocess
+import os
 
 usage = '''FastaHandler: Fasta File Manipulation Toolkit
 version 1.0.1
@@ -41,6 +42,7 @@ TranslateSequence\t| translate_dna\tFind the translated sequences as a protein a
 Use <module> --help for module usage.'''
 
 module_map = {
+    'AllFastaStats': 'all_fa_stats.py',
     'AssemblyStatsUnlimit': 'asm_stats_unlimit.py',
     'ChrPanSpecNameExtract': 'chr_pansn_extract.py',
     'ConcatenateFasta': 'concatenate_fa.py',
@@ -68,6 +70,35 @@ module_map = {
     'TranslateSequence': 'translate_dna.py'
 }
 
+# Accept snake_case aliases shown in the usage table as well
+alias_map = {
+    'all_fa_stats': 'all_fa_stats.py',
+    'asm_stats_unlimit': 'asm_stats_unlimit.py',
+    'chr_pansn_extract': 'chr_pansn_extract.py',
+    'concatenate_fa': 'concatenate_fa.py',
+    'each_fa_stats': 'each_fa_stats.py',
+    'extract_pattern': 'extract_pattern.py',
+    'find_anchor_trim': 'find_anchor_trim.py',
+    'find_count_duplicate': 'find_count_duplicate.py',
+    'find_merge_fa': 'find_merge_fa.py',
+    'gfa2fa': 'gfa2fa.py',
+    'id_extract_location': 'id_extract_location.py',
+    'id_extract_multi_location': 'id_extract_multi_location.py',
+    'id_extract': 'id_extract.py',
+    'multi2each': 'multi2each.py',
+    'multi2single': 'multi2single.py',
+    'overlap_split': 'overlap_split.py',
+    'pangenome_id_rename': 'pangenome_id_rename.py',
+    'prefix_pattern_replace': 'prefix_pattern_replace.py',
+    'prefix_rename': 'prefix_rename.py',
+    'prefix_select_rename': 'prefix_select_rename.py',
+    'remove_duplicate': 'remove_duplicate.py',
+    'rename_id': 'rename_id.py',
+    'reverse_complement': 'reverse_complement.py',
+    'size_pattern_search': 'size_pattern_search.py',
+    'subset_fa': 'subset_fa.py',
+    'translate_dna': 'translate_dna.py'
+}
 
 if __name__ == '__main__':
     if len(sys.argv) < 2 or sys.argv[1] in ['--h', '--help']:
@@ -75,11 +106,13 @@ if __name__ == '__main__':
         sys.exit(0)
 
     module = sys.argv[1]
-    if module not in module_map:
+
+    # Resolve module to script filename from either map
+    script_filename = module_map.get(module) or alias_map.get(module)
+    if not script_filename:
         print('Unexpected module. Use --h for help.')
-        sys.exit(0)
+        sys.exit(1)
 
-    script_path = f'{sys.path[0]}/scripts/{module_map[module]}'
-    parameters = ' '.join(sys.argv[2:])
-    subprocess.run(f'python3 {script_path} {parameters}', shell=True)
-
+    script_path = os.path.join(sys.path[0], 'scripts', script_filename)
+    args = [sys.executable, script_path, *sys.argv[2:]]
+    subprocess.run(args)
