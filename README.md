@@ -468,12 +468,6 @@ python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_di
 
 ### pangenome_id_rename (다시 확인_OK)
 - To generate a pangenome fasta header (re)name (#1# for “h1”, #2# for “h2”) using a tab-delimited text file and underscores to satisfy the [panSN-spec](https://github.com/pangenome/PanSN-spec).
--
-- summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files.
-
-The module provides flexible, automated renaming of IDs/headers in pangenome FASTA or tab-delimited text files. It streams plain or compressed inputs line by line, splitting each entry into columns. The first column is cleaned of digits and combined with a haplotype tag (#1# for “h1”, #2# for “h2”) and the original sequence ID to create a new composite identifier. The first three columns are joined with underscores and paired with this new ID as a tab-separated output line, producing more suitable pangenome prefix headers. Unlike a simple rename_id function that assigns only one new name, this enhanced feature can assign multiple new names to different IDs/headers from a user-supplied mapping file. Unmatched IDs remain unchanged, allowing comprehensive yet selective renaming for public genome assemblies or other pangenome datasets. All processing steps and outputs are fully logged, generating clean, single-line FASTA-ready mappings for downstream use with the prefix_select_rename function.
-
-- 
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A tab-separated (3 columns) text file.
 	+ Output: A renamed FASTA header file for pangnome.
@@ -500,7 +494,7 @@ python3 pangenome_id_rename.py --input test.txt --out output_dir --t 1 --mem 2
 - To rename prefix IDs and headers from a single-line fasta with a user's input text file.
 	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A fasta file and a find and replace pattern (e.g. old_IDs	new_IDs)
-	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Worked as "sed" command.
+	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Worked as the "sed" command.
  	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
 
 Example usage
@@ -526,7 +520,7 @@ python3 prefix_pattern_replace.py --input-seq --find-ptrn hifiasm --replace Asse
 - To rename prefix IDs and headers from a single-line fasta with a user's input text file.
 	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A fasta file and a tab-separated text file (e.g. old_IDs	new_IDs)
-	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will be also produced with its original IDs.
+	+ Output: A single-line fasta with a new prefix ID name based on the user's input text file. Unmatched IDs will also be produced with their original IDs.
 	+ Example file: [header_id_only.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/header_id_only.txt) in the "example_data" folder.
 
 Example usage
@@ -538,7 +532,7 @@ python3 prefix_rename.py --input-seq test_dna.fasta --input-id new_ids.txt --out
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. prfxrename.py:  Call the prefix_rename module
+	1. prefix_rename.py:  Call the prefix_rename module
 	1. python3 prefix_rename.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --input-id: Indicate a new tap-separated prefix ID/header name file (accept both integers and strings, but no space)
@@ -562,7 +556,7 @@ python3 prefix_select_rename.py --input-seq test_dna.fasta --input-id new_ids.tx
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. prfxselrename.py:  Call the prefix_select_rename module
+	1. prefix_select_rename.py:  Call the prefix_select_rename module
 	1. python3 prefix_select_rename.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --input-id: Indicate a new tap-separated prefix ID/header name file (accept both integers and strings, but no space)
@@ -586,7 +580,7 @@ python3 remove_duplicate.py --input-seq test_dna2.fasta --out output_testdupl.fa
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. removedupl.py:  Call the remove_duplicate module
+	1. remove_duplicate.py:  Call the remove_duplicate module
 	1. python3 remove_duplicate.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --out: Indicate an output fasta file after removing the duplicated IDs and sequences (only for both matched IDs and their corresponding sequences)
@@ -609,7 +603,7 @@ python3 rename_id.py --input-seq test_dna.fasta --new-name FunNGS --out output_r
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. renameid.py:  Call the rename_id module
+	1. rename_id.py:  Call the rename_id module
 	1. python3 rename_id.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --new-name: Indicate a new prefix ID/header name (accept both integer and strings, but no space)
@@ -633,7 +627,7 @@ python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.f
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. revcomplt.py:  Call the reverse_complement module
+	1. reverse_complement.py:  Call the reverse_complement module
 	1. python3 reverse_complement.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --out: Indicate a reverse complement converted output single-line fasta file and its path
@@ -642,15 +636,17 @@ python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.f
 
 
 ### size_pattern_search (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+- To find the best target match in an input FASTA, split unmatched regions into chunks, and compute mismatches/identity via local alignment with parallel processing.
+- Produces tab-separated outputs of match indices, mismatch counts, and similarity stats—useful for probe/primer design, SV detection, repeat analysis, and downstream genomics workflows.
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
+	+ Input: A multi-line fasta file.
 	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
   	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
 
 Example usage
 ```
 python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 size_pattern_search.py --input-fa input.fa.gz --target-fa target.fa.gz --char-size 100 --out output.txt
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
