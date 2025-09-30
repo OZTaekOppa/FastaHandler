@@ -5,7 +5,7 @@ A collection of Python scripts designed for the efficient management of various 
 
 
 ## Brief Background
-**FastaHandler**, created by Hyungtaek Jung at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 19 work modules to ease input/output processes, covering various aspects of FASTA data analysis including post-processing and format conversion. Optimized for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. Users should note that processing large datasets may require substantial computational resources on Linux, HPC or Cloud platforms.
+**FastaHandler**, created by Hyungtaek Jung at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 26 work modules to ease input/output processes, covering various aspects of FASTA data analysis, including post-processing and format conversion. Optimised for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. Users should note that processing large datasets may require substantial computational resources on Linux, HPC or Cloud platforms.
 
 
 ## Citation
@@ -58,25 +58,33 @@ version 1.0.1
 Usage: python3 fastahandler.py <module> <parameters>
 
 Modules:
-Multi2Single    		| m2s   	Convert a multi-fasta (multiline) into a single-line fasta.
-Gfa2Fasta	    		| g2a   	Convert a gfa (Graphical Fragment Assembly) into a single-line fasta.
-RenameId        		| rid   	Rename prefix IDs and headers.
-PrefixRename    		| prn   	Rename prefix IDs and headers with a user’s input.
-PrefixSelectRename      	| psr   	Rename prefix IDs and headers with a user’s input (Only).
-PrefixFindReplaceRename      	| pfr   	Replace and rename prefix IDs and headers with a user’s input (Only).
-IdExtract       		| idx   	Extract matched IDs and their corresponding sequences.
-IdExtractLocation       	| iel   	Extract matched IDs, locations and their corresponding sequences.
-IdExtractLocationMultiple       | iem   	Extract matched IDs, locations and their corresponding sequences (Multiple).
-ReverseComplement       	| rcp   	Make a reverse complement sequence.
-FindCountDuplication    	| fcd   	Find and count the duplicated IDs and sequences.
-RemoveDuplication       	| rvd   	Remove the duplicated IDs and sequences.
-SubsetFasta     		| ssf   	Make a subset of data with a sequence length filter.
-ExtractPattern  		| xpt   	Make a subset of data with find, filter and extract.
-EachFastaStats  		| efs   	Generate each line fasta statistic for a multi-line fasta.
-AllFastaStats   		| afs   	Generate a summary of multi-line fasta statistics.
-MultipleFastaStats      	| mfs   	Generate a summary of multi-line fasta statistics (Multiple).
-ConcatenateFasta        	| ccf   	Make a concatenated fasta file (Multiple).
-TranslateSequence       	| tls   	Find the translated sequences as a protein and open reading frames (ORFs).
+AllFastaStats	|	 all_fa_stats	|	Generate a summary of multi-line fasta statistics.
+AssemblyStatsUnlimit	|	 asm_stats_unlimit	|	Generate a summary of multi-line fasta statistics (Multiple).
+ChrPanSpecNameExtract	|	 chr_pansn_extract	|	Make sequence partition based on the name of prefix (CL) in the fasta header.
+ConcatenateFasta	|	 concatenate_fa	|	Make a concatenated fasta file (Multiple).
+EachFastaStats	|	 each_fa_stats	|	Generate each line fasta statistic for a multi-line fasta.
+ExtractPattern	|	 extract_pattern	|	Make a subset of data with find, filter and extract.
+FindAnchorTrim	|	 find_anchor_trim	|	Make a subset of fasta with find, anchor, trim, and extract.
+FindCountDuplication	|	 find_count_duplicate	|	Find and count the duplicated IDs and sequences.
+FindMergeFasta	|	 find_merge_fa	|	Find and merge fasta files if they match a certain pattern.
+Gfa2Fasta	|	 gfa2fa	|	Convert a gfa into a single-line fasta.
+IdExtractLocation	|	 id_extract_location	|	Extract matched IDs, locations and their corresponding sequences.
+IdExtractLocationMultiple	|	 id_extract_multi_location	|	Extract matched IDs, locations and their corresponding sequences (Multiple).
+IdExtract	|	 id_extract	|	Extract matched IDs and their corresponding sequences.
+Multiple2Each	|	 multi2each	|	Convert a multi-fasta file to a each (split) fasta.
+Multiple2Single	|	 multi2single	|	Convert a multi-fasta (multiline) file to a single-line fasta.
+OverlapSplit	|	 overlap_split	|	Convert a multi-fasta (multiline) file to a single-line fasta.
+PangenomeIdRename	|	 pangenome_id_rename	|	Rename prefix IDs and headers for a Pangenome format.
+PrefixPatternReplace	|	 prefix_pattern_replace	|	Replace and rename prefix IDs and headers with a user’s input (Only).
+PrefixRename	|	 prefix_rename	|	Rename prefix IDs and headers with a user’s input.
+PrefixSelectRename	|	 prefix_select_rename	|	Rename prefix IDs and headers with a user’s input (Only).
+RemoveDuplication	|	 remove_duplicate	|	Remove the duplicated IDs and sequences.
+RenameId	|	 rename_id	|	Rename prefix IDs and headers.
+ReverseComplement	|	 reverse_complement	|	Make a reverse complement sequence.
+SizePatternSearch	|	 size_pattern_search	|	Find unique and similar sequences against its own input sequence
+SubsetFasta	|	 subset_fa	|	Make a subset of data with a sequence length filter.
+TranslateSequence	|	 translate_dna	|	Find the translated sequences as a protein and open reading frames (ORFs).
+
 
 Use <module> --help for module usage.
 ```
