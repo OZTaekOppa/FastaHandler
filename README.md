@@ -636,27 +636,27 @@ python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.f
 
 
 ### size_pattern_search (다시 확인)
-- To find the best target match in an input FASTA, split unmatched regions into chunks, and compute mismatches/identity via local alignment with parallel processing.
-- Produces tab-separated outputs of match indices, mismatch counts, and similarity stats—useful for probe/primer design, SV detection, repeat analysis, and downstream genomics workflows.
+- To detect the best match of a target (unique pattern or character) in an input FASTA, split unmatched regions into chunks, and use local alignment with parallel processing to compute mismatches and identity.
+- To produce tab-separated outputs of match indices, mismatch counts, and similarity stats—supporting probe/primer design, structural-variant detection, repeat analysis, and downstream genomics workflows.
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A multi-line fasta file.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Output: A matched fasta sequence with a summary of match indices, mismatch counts, and similarity. 
+  	+ Example file: [size_ptrn_full_seq.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/size_ptrn_full_seq.fa) and [size_ptrn_target_seq.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/size_ptrn_target_seq.fa) in the "example_data" folder.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
 python3 size_pattern_search.py --input-fa input.fa.gz --target-fa target.fa.gz --char-size 100 --out output.txt
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. ize_pattern_search.py:  Call the size_pattern_search module
+	1. python3 ize_pattern_search.py --help: Check help menu
+		+ --input-fa: Indicate an input multi-line fasta file and its path
+        + --target-fa: Indicate a target fasta file
+        + --char-size: Indicate a character size for searching between input and target fasta files
+		+ --out: Indicate an output folder of matched fasta sequence with a summary of statistics. 
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
@@ -676,7 +676,7 @@ python3 subset_fa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subse
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. subsetfa.py:  Call the subset_fa module
+	1. subset_fa.py:  Call the subset_fa module
 	1. python3 subset_fa.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path (accept reverse complement sequences)
 		+ --filter: Indicate a length size to filter out
@@ -701,8 +701,8 @@ python translate_dna.py --input-seq test_dna.fasta --out output/folder --t 1 --m
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. translatedna.py:  Call the translate_dna module
-	1. python3 translatedna.py --help: Check help menu
+	1. translate_dna.py:  Call the translate_dna module
+	1. python3 translate_dna.py --help: Check help menu
 		+ --input-seq: Indicate input single-line fasta files and their path
 		+ --out: Indicate a translated output fasta file and its path (a total of four fasta files for both nucleotide and protein sequences)
 		+ --t: Specify thread numbers (integer only)
