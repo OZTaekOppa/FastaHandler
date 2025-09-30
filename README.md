@@ -136,26 +136,26 @@ python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_d
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### chr_pansn_extract (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+### chr_pansn_extract (다시 확인_OK)
+- To make a sequence partition based on the name of a prefix (e.g. CL:) in the fasta header, especially for pangenome spec names. 
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Input: Pangenome spec named multi-line fasta files.
+	+ Output: A clean set of per-group FASTA files for downstream pangenome or chromosome-level analyses.
+  	+ Example file: [chr_pansn_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/chr_pansn_asm.fa) in the "example_data" folder.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 chr_pansn_extract.py --input-fa test_asm.fasta --output Outfolder (--t and --mem optional)
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
++ Please note that the chr_pansn_extract module groups sequences by CL prefix. While it is useful for pangenome, genome and transcriptome analyses, users need to modify the prefix name based on their requirement. 
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. asmstatsunlm.py:  Call the chr_pansn_extract module
+	1. python3 chr_pansn_extract.py --help: Check help menu
+		+ --input-fa: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
+		+ --out: A clean set of per-group fasta with extracted IDs and their corresponding sequences.
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
