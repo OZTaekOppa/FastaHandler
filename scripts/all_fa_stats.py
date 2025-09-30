@@ -1,6 +1,6 @@
-# FastaHandler a multi-line fasta created by Hyungtaek Jung
+# FastaHandler: created by Hyungtaek Jung
 # A multi-fasta (multiline) file to calculate assembly stats comprehensively (N50, N90, L50, L90)
-# Example command: python3 allfastats.py --input-seq test1.fa --out all_stats_out.txt (w/ optional for --t cpu and --mem memory)
+# Example command: python3 all_fa_stats.py --input-seq test1.fa --out all_stats_out.txt (w/ optional for --t cpu and --mem memory)
 
 #!/usr/bin/env python3
 
@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 # Set up logging
-logging.basicConfig(filename='allfastats.log', level=logging.INFO,
+logging.basicConfig(filename='all_fa_stats.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -23,7 +23,7 @@ def open_fasta(file_path):
     Open a fasta file, handling both compressed and uncompressed formats efficiently.
     """
     if file_path.endswith(('.gz', '.tar.gz', '.bz2')):
-        return gzip.open(file_path, 'rt')  # Read gzip files in text mode without extracting
+        return gzip.open(file_path, 'rt')
     elif file_path.endswith('.zip'):
         import zipfile
         with zipfile.ZipFile(file_path, 'r') as zip_ref:
@@ -129,9 +129,9 @@ def calculate_summary_stats(file_path):
         "N(%)": round(n_percent, 2),
         "Ncount": nucleotide_counts["N"],
         "N50": n50,
-        "N90": n90,  # Added N90
-        "L50": l50,  # Added L50
-        "L90": l90,  # Added L90
+        "N90": n90,
+        "L50": l50,
+        "L90": l90,
         "Max": len(sorted_contigs[0]),
         "Min": len(sorted_contigs[-1]),
         "GapCount(-)": gap_count,
@@ -183,3 +183,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
