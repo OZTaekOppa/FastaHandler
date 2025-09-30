@@ -35,7 +35,7 @@ PrefixSelectRename\t| prefix_select_rename\tRename prefix IDs and headers with a
 RemoveDuplication\t| remove_duplicate\tRemove the duplicated IDs and sequences.
 RenameId\t| rename_id\tRename prefix IDs and headers.
 ReverseComplement\t| reverse_complement\tMake a reverse complement sequence.
-SizePatternSearch\t| size_pattern_search\tFind unique and similar sequences against its own input sequence
+SizePatternSearch\t| size_pattern_search\tFind unique and similar sequences against its own input sequence.
 SubsetFasta\t| subset_fa\tMake a subset of data with a sequence length filter.
 TranslateSequence\t| translate_dna\tFind the translated sequences as a protein and open reading frames (ORFs).
 
