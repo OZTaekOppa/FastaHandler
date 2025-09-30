@@ -466,26 +466,32 @@ python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_di
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### pangenome_id_rename (다시 확인)
-- To generate a summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files. 
+### pangenome_id_rename (다시 확인_OK)
+- To generate a pangenome fasta header (re)name (#1# for “h1”, #2# for “h2”) using a tab-delimited text file and underscores to satisfy the [panSN-spec](https://github.com/pangenome/PanSN-spec).
+-
+- summary of multi-line fasta statistics for unlimited fasta files. An extended version of all_fa_stats for multiple FASTA files.
+
+The module provides flexible, automated renaming of IDs/headers in pangenome FASTA or tab-delimited text files. It streams plain or compressed inputs line by line, splitting each entry into columns. The first column is cleaned of digits and combined with a haplotype tag (#1# for “h1”, #2# for “h2”) and the original sequence ID to create a new composite identifier. The first three columns are joined with underscores and paired with this new ID as a tab-separated output line, producing more suitable pangenome prefix headers. Unlike a simple rename_id function that assigns only one new name, this enhanced feature can assign multiple new names to different IDs/headers from a user-supplied mapping file. Unmatched IDs remain unchanged, allowing comprehensive yet selective renaming for public genome assemblies or other pangenome datasets. All processing steps and outputs are fully logged, generating clean, single-line FASTA-ready mappings for downstream use with the prefix_select_rename function.
+
+- 
  	+ Requirement: The Python/bash script requires a Python library.
-	+ Input: Unlimited multi-line fasta files.
-	+ Output: A summary of multi-line fasta with its diverse statistics (e.g. sequence length, GC content, N50, and more).
-  	+ Example file: [all_stat_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/all_stat_asm.fa) and [stat_asm_mlt_unlm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/stat_asm_mlt_unlm.fa) in the "example_data" folder.
+	+ Input: A tab-separated (3 columns) text file.
+	+ Output: A renamed FASTA header file for pangnome.
+  	+ Example file: [pangenome_id_rename.txt](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/pangenome_id_rename.txt) in the "example_data" folder.
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 pangenome_id_rename.py --input test.txt --out output_dir --t 1 --mem 2
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
-+ Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
++ This module is to rename the fasta header text file for pangenome, then as an input for prefix_slect_rename.py.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. asmstatsunlm.py:  Call the asm_stats_unlimit module
-	1. python3 asm_stats_unlimit.py --help: Check help menu
-		+ --input-seqs: Indicate an input multi-line fasta file and its path (Separated by a space for each new fasta file)
-		+ --out: Indicate an output text file with the summary of statistics
+	1. pangenome_id_rename.py:  Call the pangenome_id_rename module
+	1. python3 pangenome_id_rename.py --help: Check help menu
+		+ --input: Indicate a tab-separated (3 columns) text file.
+		+ --out: Indicate an output folder with the renamed fasta headers
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
@@ -506,7 +512,7 @@ python3 prefix_pattern_replace.py --input-seq --find-ptrn hifiasm --replace Asse
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. prfxfindreplace.py:  Call the prefix_pattern_replace module
+	1. prefix_pattern_replace.py:  Call the prefix_pattern_replace module
 	1. python3 prefix_pattern_replace.py --help: Check help menu
 		+ --input-seq: Indicate an input single-line fasta file and its path
 		+ --find-ptrn: Indicate a pattern in prefix ID/header name file (accept both integer and strings, but no space)
