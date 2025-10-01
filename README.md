@@ -28,7 +28,7 @@ Hyungtaek Jung. 2025: **FastaHandler**: An easy Python-based toolset for handlin
 
 ## STABLE (version 1.0.1)
 - Release date: January 2024
-- **FastaHandler** is a standalone Python application equipped with 18 sub-modules for interactive FASTA file manipulation, available as open-source (see [LICENSE](https://github.com/OZTaekOppa/FastaHandler/blob/main/README.md#license)).
+- **FastaHandler** is a standalone Python application equipped with 26 sub-modules for interactive FASTA file manipulation, available as open-source (see [LICENSE](https://github.com/OZTaekOppa/FastaHandler/blob/main/README.md#license)).
 
 
 ## INSTALLATION
