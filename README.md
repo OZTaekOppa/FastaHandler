@@ -53,7 +53,7 @@ Please refer to the example dataset folder for sample data and usage demonstrati
 		+ --mem: Default is 10 Gb
 
 ## GETTING STARTED
-**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 19 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimise the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
+**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 26 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimise the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
 
 ![FASTAhandler Workflow](https://github.com/OZTaekOppa/FastaHandler/blob/main/images/FASTAhandler_Workflow.png)
 
