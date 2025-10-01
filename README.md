@@ -5,7 +5,7 @@ A collection of Python scripts designed for the efficient management of various 
 
 
 ## Brief Background
-**FastaHandler**, developed by Hyungtaek Jung at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python toolkit for efficient FASTA file management. It provides 26 dedicated modules to streamline input/output handling, post-processing, and format conversion for FASTA data. Optimised for life science applications, **FastaHandler** is a command-line tool tested across multiple FASTA formats and validated on large datasets (up to 3 Gb human, plant, and animal genomes) using 2 CPUs and 10 GB RAM. For larger datasets, higher computational resources may be required on Linux, HPC, or cloud platforms.
+**FastaHandler**, developed by Hyungtaek Jung, is a Python toolkit for efficient FASTA file management. It provides 26 dedicated modules to streamline input/output handling, post-processing, and format conversion for FASTA data. Optimised for life science applications, **FastaHandler** is a command-line tool tested across multiple FASTA formats and validated on large datasets (up to 3 Gb human, plant, and animal genomes) using 2 CPUs and 10 GB RAM. For larger datasets, higher computational resources may be required on Linux, HPC, or cloud platforms.
 
 
 ## Objectives
