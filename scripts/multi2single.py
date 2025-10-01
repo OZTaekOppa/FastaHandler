@@ -1,97 +1,82 @@
-# FastaHandler multiline to single-line created by Hyungtaek Jung
+# FastaHandler: created by Hyungtaek Jung
 # A multi-fasta (multiline) file to a single-line fasta
 # Example command: python3 multi2single.py --input-seq test.fa --out test_out.fa (w/ optional for --t cpu and --mem memory)
 
-
 #!/usr/bin/env python3
+
 import argparse
 import os
 import sys
 import gzip
+import bz2
 import tarfile
 import zipfile
-import bz2
 import logging
 
-logging.basicConfig(filename="multi2single.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(filename="multi2single.log", level=logging.INFO,
+                    format="%(asctime)s - %(levelname)s - %(message)s")
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Convert multi-line FASTA to single-line FASTA.")
-    parser.add_argument("--input-seq", required=True, help="Input file path.")
-    parser.add_argument("--out", required=False, help="Output file path.")
-    parser.add_argument("--t", type=int, default=1, help="Number of CPUs. Default: 1.")
-    parser.add_argument("--mem", type=int, default=10, help="Memory in gigabytes. Default: 10.")
+    parser = argparse.ArgumentParser(description="Convert multi-line FASTA to single-line FASTA (compressed or uncompressed).")
+    parser.add_argument("--input-seq", required=True, help="Input FASTA file (.fa, .fasta, .gz, .bz2, .tar.gz, .zip).")
+    parser.add_argument("--out", required=False, help="Output FASTA file.")
+    parser.add_argument("--t", type=int, default=1, help="CPUs (default: 1).")
+    parser.add_argument("--mem", type=int, default=10, help="Memory in GB (default: 10).")
     args = parser.parse_args()
 
-    if not os.path.exists(args.input_seq):
-        sys.exit("Error: Input file not found or inaccessible.")
-
-    if args.out:
-        out_dir = os.path.dirname(os.path.abspath(args.out))
-        if not os.path.exists(out_dir):
-            os.makedirs(out_dir)  # Create the output directory if it doesn't exist
-    else:
-        args.out = os.path.join(os.getcwd(), "renameid_seq_T1.fa")
-
-    if not isinstance(args.t, int) or args.t <= 0:
-        sys.exit("Error: Number of CPUs must be a positive integer.")
-
-    if not isinstance(args.mem, int) or args.mem <= 0:
-        sys.exit("Error: Memory must be a positive integer.")
-
+    if not os.path.isfile(args.input_seq):
+        sys.exit("Error: Input file not found.")
+    if args.t < 1 or args.mem < 1:
+        sys.exit("Error: CPUs and memory must be positive integers.")
+    if not args.out:
+        args.out = os.path.join(os.getcwd(), "singleline_output.fasta")
     return args
 
-def unzip_file(file_path):
-    file_ext = os.path.splitext(file_path)[-1]
-    unzip_path = file_path.rstrip(file_ext)
-
-    if file_ext == ".gz":
-        with gzip.open(file_path, 'rt') as f_in:
-            with open(unzip_path, 'w') as f_out:
-                f_out.write(f_in.read())
-    elif file_ext == ".tar.gz":
-        with tarfile.open(file_path, 'r:gz') as tar:
-            tar.extractall(path=unzip_path)
-    elif file_ext == ".zip":
-        with zipfile.ZipFile(file_path, 'r') as zip_ref:
-            zip_ref.extractall(unzip_path)
-    elif file_ext == ".bz2":
-        with bz2.open(file_path, 'rt') as f_in:
-            with open(unzip_path, 'w') as f_out:
-                f_out.write(f_in.read())
+def open_fasta_stream(filepath):
+    if filepath.endswith('.gz'):
+        return gzip.open(filepath, 'rt')
+    elif filepath.endswith('.bz2'):
+        return bz2.open(filepath, 'rt')
+    elif filepath.endswith(('.fa', '.fasta')):
+        return open(filepath, 'r')
+    elif filepath.endswith('.tar.gz'):
+        with tarfile.open(filepath, 'r:gz') as tar:
+            for member in tar.getmembers():
+                if member.isfile() and member.name.endswith(('.fa', '.fasta')):
+                    return (line.decode().strip() for line in tar.extractfile(member))
+    elif filepath.endswith('.zip'):
+        with zipfile.ZipFile(filepath, 'r') as z:
+            for fname in z.namelist():
+                if fname.endswith(('.fa', '.fasta')):
+                    return (line.decode().strip() for line in z.open(fname))
     else:
-        unzip_path = os.path.dirname(os.path.abspath(file_path))
+        sys.exit("Unsupported file format.")
+    return None
 
-    return unzip_path
-
-def multi2singleline(input_file, output_file):
-    with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
-        header = None
-        sequence = ""
-        for line in f_in:
+def multi2singleline(input_handle, output_file):
+    with open(output_file, 'w') as f_out:
+        header, seq_lines = None, []
+        for line in input_handle:
             if line.startswith(">"):
-                if header is not None:
-                    f_out.write(header + "\n")
-                    f_out.write(sequence + "\n")
+                if header:
+                    f_out.write(f"{header}\n{''.join(seq_lines)}\n")
                 header = line.strip()
-                sequence = ""
+                seq_lines = []
             else:
-                sequence += line.strip()
-        if header is not None and sequence:
-            f_out.write(header + "\n")
-            f_out.write(sequence + "\n")
+                seq_lines.append(line.strip())
+        if header:
+            f_out.write(f"{header}\n{''.join(seq_lines)}\n")
 
 def main():
     args = parse_args()
-    logging.info(f"Input file: {args.input_seq}")
-    logging.info(f"Output file: {args.out}")
-    logging.info(f"Number of CPUs: {args.t}")
-    logging.info(f"Memory (GB): {args.mem}")
+    logging.info(f"Input: {args.input_seq}, Output: {args.out}, CPUs: {args.t}, Mem: {args.mem}GB")
 
-    # Convert to a single line
-    unzip_path = unzip_file(args.input_seq)
-    single_line_output = args.out or os.path.join(os.getcwd(), "output_singleline.fasta")
-    multi2singleline(args.input_seq, single_line_output)
+    input_handle = open_fasta_stream(args.input_seq)
+    if input_handle:
+        multi2singleline(input_handle, args.out)
+        logging.info(f"Processed: {args.input_seq}")
+    else:
+        sys.exit("No FASTA file found in archive.")
 
 if __name__ == "__main__":
     main()
