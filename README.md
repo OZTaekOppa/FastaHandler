@@ -5,8 +5,11 @@ A collection of Python scripts designed for the efficient management of various 
 
 
 ## Brief Background
-**FastaHandler**, created by Hyungtaek Jung at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python script suite for efficient FASTA file management. It boasts 26 work modules to ease input/output processes, covering various aspects of FASTA data analysis, including post-processing and format conversion. Optimised for life science datasets, **FastaHandler** is a CLI application tested across different FASTA formats. The toolkit has been successfully tested on 3 Gb FASTA files (e.g. human, plant and animal genomes) using 2 CPUs and 10 GB of RAM.
-For much larger datasets, users should anticipate higher computational demands and consider running on Linux, HPC, or cloud platforms. **FastaHandler** is designed to help researchers perform FASTA manipulations quickly and reproducibly, complementing existing bioinformatics tools and supporting high standards of reproducibility in the NGS era.
+**FastaHandler**, developed by Hyungtaek Jung at the [National Centre for Indigenous Genomics](https://ncig.anu.edu.au/) at [The Australian National University](https://www.anu.edu.au/), is a Python toolkit for efficient FASTA file management. It provides 26 dedicated modules to streamline input/output handling, post-processing, and format conversion for FASTA data. Optimised for life science applications, **FastaHandler** is a command-line tool tested across multiple FASTA formats and validated on large datasets (up to 3 Gb human, plant, and animal genomes) using 2 CPUs and 10 GB RAM. For larger datasets, higher computational resources may be required on Linux, HPC, or cloud platforms.
+
+
+## Objectives
+**FastaHandler** enables researchers to perform FASTA manipulations quickly, reproducibly, and at scale, complementing existing bioinformatics tools and supporting high standards of reproducibility in the Next-Generation Sequencing (NGS) era. Although primarily focused on FASTA file manipulation, several modules are also tailored for pangenome input file preparation, expanding its utility in genome assembly and comparative genomics.
 
 ## Citation
 Hyungtaek Jung. 2025: **FastaHandler**: An easy Python-based toolset for handling fasta files, [Genetics TBA](https://www.biorxiv.org/XXXX).
@@ -45,8 +48,12 @@ python3 {path}/fastahandler.py
 ### Tested Datasets
 Please refer to the example dataset folder for sample data and usage demonstrations.
 
+### Optional Parameters
+		+ --t: Default is 1
+		+ --mem: Default is 10 Gb
+
 ## GETTING STARTED
-**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 19 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimize the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
+**FastaHandler** is developed primarily in Python 3.9+ and Biopython and features 19 modules. It facilitates data input and output through a Command-Line Interface (CLI), ensuring smooth end-to-end file handling. To optimise the use of **FastaHandler**, users should prepare all necessary input files, such as FASTA and TXT formats, in advance.
 
 ![FASTAhandler Workflow](https://github.com/OZTaekOppa/FastaHandler/blob/main/images/FASTAhandler_Workflow.png)
 
@@ -98,7 +105,7 @@ Use <module> --help for module usage.
 
 Example usage
 ```
-python3 all_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --mem 2
+python3 all_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + Both eachfastats and allfastasts modules use the same multi-line FASTA input. Eachfastats focuses on individual FASTA lines and their sequence lengths, while allfastasts provides a summary of assembly statistics, such as for genomes or transcriptomes.
@@ -121,7 +128,7 @@ python3 all_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --
 
 Example usage
 ```
-python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 2
+python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_dna.txt --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + Both all_fa_stats and asm_stats_unlimit modules take the same multi-line FASTA files. all_fa_stats generates a summary of assembly statistics from a single FASTA file, while asm_stats_unlimit does so for multiple FASTA files, useful for genome or transcriptome analysis.
@@ -136,7 +143,7 @@ python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_d
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### chr_pansn_extract (다시 확인_OK)
+### chr_pansn_extract
 - To make a sequence partition based on the name of a prefix (e.g. CL:) in the fasta header, especially for pangenome spec names. 
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: Pangenome spec named multi-line fasta files.
@@ -145,7 +152,7 @@ python3 asm_stats_unlimit.py --input-seqs test_dna1.fasta test_dna2.fasta test_d
 
 Example usage
 ```
-python3 chr_pansn_extract.py --input-fa test_asm.fasta --output Outfolder --t 1 --mem 2
+python3 chr_pansn_extract.py --input-fa test_asm.fasta --output Outfolder --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + Please note that the chr_pansn_extract module groups sequences by CL prefix. While it is useful for pangenome, genome and transcriptome analyses, users need to modify the prefix name based on their requirement. 
@@ -168,7 +175,7 @@ python3 chr_pansn_extract.py --input-fa test_asm.fasta --output Outfolder --t 1 
 
 Example usage
 ```
-python concatenate_fa.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_concat.fasta --t 1 --mem 2
+python concatenate_fa.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_concat.fasta --t 1 --mem 10
 ```
 + For optimal use of this module, ensure that all input FASTA files have matching prefix IDs and headers and are formatted as single-line FASTA before concatenation.
 + Before using the concatenate module, ensure your FASTA files are in single-line format by using the renameid and multi2singleline modules, even though the pipeline automatically converts multi-line FASTA files.
@@ -191,7 +198,7 @@ python concatenate_fa.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.
 
 Example usage
 ```
-python3 each_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --mem 2
+python3 each_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -214,7 +221,7 @@ python3 each_fa_stats.py --input-seq test_dna.fasta --out output_dna.txt --t 1 -
 
 Example usage
 ```
-python3 extract_pattern.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.txt --len-over 45 --out output_pattern.fasta --t 1 --mem 2
+python3 extract_pattern.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.txt --len-over 45 --out output_pattern.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -264,7 +271,7 @@ python3 find_anchor_trim.py --input-fa ref_seq.fa --anchor1-fa anchor1_seq.fa --
 
 Example usage
 ```
-python3 find_count_duplicate.py --input-seq test_dna2.fasta --out output_files.txt --t 1 --mem 2
+python3 find_count_duplicate.py --input-seq test_dna2.fasta --out output_files.txt --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -286,7 +293,7 @@ python3 find_count_duplicate.py --input-seq test_dna2.fasta --out output_files.t
 
 Example usage
 ```
-python3 find_merge_fa.py --input-folder ./ --pattern-fa "*asm_chr1.fasta" --out ./output_merge_files.fa --t 1 --mem 2
+python3 find_merge_fa.py --input-folder ./ --pattern-fa "*asm_chr1.fasta" --out ./output_merge_files.fa --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -309,7 +316,7 @@ python3 find_merge_fa.py --input-folder ./ --pattern-fa "*asm_chr1.fasta" --out 
 
 Example usage
 ```
-python3 gfa2fa.py --input-gfa test_dna.gfa --out test_output_sl.fasta --t 1 --mem 2
+python3 gfa2fa.py --input-gfa test_dna.gfa --out test_output_sl.fasta --t 1 --mem 10
 ```
 
 - Parameter explanation
@@ -331,7 +338,7 @@ python3 gfa2fa.py --input-gfa test_dna.gfa --out test_output_sl.fasta --t 1 --me
 
 Example usage
 ```
-python3 id_extract_location.py --input-seq test_dna.fasta --header-id test3_3%week --start 2 --end 10 --out output_test.fasta --t 1 --mem 2
+python3 id_extract_location.py --input-seq test_dna.fasta --header-id test3_3%week --start 2 --end 10 --out output_test.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -357,7 +364,7 @@ python3 id_extract_location.py --input-seq test_dna.fasta --header-id test3_3%we
 
 Example usage
 ```
-python3 id_extract_multi_location.py --input-seq test_dna.fasta --input-extract input_ext.txt --out output_extest.fasta --t 1 --mem 2
+python3 id_extract_multi_location.py --input-seq test_dna.fasta --input-extract input_ext.txt --out output_extest.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -381,7 +388,7 @@ python3 id_extract_multi_location.py --input-seq test_dna.fasta --input-extract 
 
 Example usage
 ```
-python3 id_extract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out output_extracted.fasta --t 1 --mem 2
+python3 id_extract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out output_extracted.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 	
@@ -405,7 +412,7 @@ python3 id_extract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out
 
 Example usage
 ```
-python3 multi2each.py --input-seq test.fa --out output_dir --t 1 --mem 2
+python3 multi2each.py --input-seq test.fa --out output_dir --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -427,7 +434,7 @@ python3 multi2each.py --input-seq test.fa --out output_dir --t 1 --mem 2
 
 Example usage
 ```
-python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --t 1 --mem 2
+python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --t 1 --mem 10
 ```
 
 - Parameter explanation
@@ -450,7 +457,7 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 
 Example usage
 ```
-python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_dir --t 1 --mem 2
+python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_dir --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + Please note that the --overlap-size should be >= 0.
@@ -475,7 +482,7 @@ python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_di
 
 Example usage
 ```
-python3 pangenome_id_rename.py --input test.txt --out output_dir --t 1 --mem 2
+python3 pangenome_id_rename.py --input test.txt --out output_dir --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 + This module is to rename the fasta header text file for pangenome, then as an input for prefix_slect_rename.py.
@@ -499,7 +506,7 @@ python3 pangenome_id_rename.py --input test.txt --out output_dir --t 1 --mem 2
 
 Example usage
 ```
-python3 prefix_pattern_replace.py --input-seq --find-ptrn hifiasm --replace Assembly --out output_reN.fasta --t 1 --mem 2
+python3 prefix_pattern_replace.py --input-seq --find-ptrn hifiasm --replace Assembly --out output_reN.fasta --t 1 --mem 10
 ```
 + Although the script can process multiline FASTA files, if you're unsure about your input FASTA file format, it's recommended to first convert it to single-line format using the multi2single module.
 + The script is effective for selectively renaming IDs/headers in FASTA files (with a user's specific input), such as genome assemblies from databases, where you want to exclude and not rename certain elements like scaffolds.
@@ -525,7 +532,7 @@ python3 prefix_pattern_replace.py --input-seq --find-ptrn hifiasm --replace Asse
 
 Example usage
 ```
-python3 prefix_rename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
+python3 prefix_rename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 10
 ```
 + Although the script can process multiline FASTA files, if you're unsure about your input FASTA file format, it's recommended to first convert it to single-line format using the multi2single module.
 + The script is ideal for renaming specific parts of IDs/headers in FASTA files, such as those from genome assemblies acquired from public databases like NCBI and EBI, based on user input.
@@ -549,7 +556,7 @@ python3 prefix_rename.py --input-seq test_dna.fasta --input-id new_ids.txt --out
 
 Example usage
 ```
-python3 prefix_select_rename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 2
+python3 prefix_select_rename.py --input-seq test_dna.fasta --input-id new_ids.txt --out output_reN.fasta --t 1 --mem 10
 ```
 + Although the script can process multiline FASTA files, if you're unsure about your input FASTA file format, it's recommended to first convert it to single-line format using the multi2single module.
 + The script is effective for selectively renaming IDs/headers in FASTA files (with a user's specific input), such as genome assemblies from databases, where you want to exclude and not rename certain elements like scaffolds.
@@ -574,7 +581,7 @@ python3 prefix_select_rename.py --input-seq test_dna.fasta --input-id new_ids.tx
 
 Example usage
 ```
-python3 remove_duplicate.py --input-seq test_dna2.fasta --out output_testdupl.fasta --t 1 --mem 2
+python3 remove_duplicate.py --input-seq test_dna2.fasta --out output_testdupl.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -597,7 +604,7 @@ python3 remove_duplicate.py --input-seq test_dna2.fasta --out output_testdupl.fa
 
 Example usage
 ```
-python3 rename_id.py --input-seq test_dna.fasta --new-name FunNGS --out output_reN.fasta --t 1 --mem 2
+python3 rename_id.py --input-seq test_dna.fasta --new-name FunNGS --out output_reN.fasta --t 1 --mem 10
 ```
 + Use the multi2single module first if your input FASTA file isn't in single-line format.
 
@@ -621,7 +628,7 @@ python3 rename_id.py --input-seq test_dna.fasta --new-name FunNGS --out output_r
 
 Example usage
 ```
-python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.fasta --t 1 --mem 2
+python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -645,7 +652,7 @@ python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.f
 
 Example usage
 ```
-python3 size_pattern_search.py --input-fa input.fa.gz --target-fa target.fa.gz --char-size 100 --out output.txt
+python3 size_pattern_search.py --input-fa input.fa.gz --target-fa target.fa.gz --char-size 100 --out output.txt --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -670,7 +677,7 @@ python3 size_pattern_search.py --input-fa input.fa.gz --target-fa target.fa.gz -
 
 Example usage
 ```
-python3 subset_fa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset.fasta --t 1 --mem 2
+python3 subset_fa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subset.fasta --t 1 --mem 10
 ```
 + If your input FASTA file is in multi-line format, the script will automatically convert it to single-line format for processing (embedded pipeline).
 
@@ -694,7 +701,7 @@ python3 subset_fa.py --input-seq test_mRNA1.fasta --filter 50 --out output_subse
 
 Example usage
 ```
-python translate_dna.py --input-seq test_dna.fasta --out output/folder --t 1 --mem 2
+python translate_dna.py --input-seq test_dna.fasta --out output/folder --t 1 --mem 10
 ```
 + For optimal use of this module, ensure that all input FASTA files have matching prefix IDs and headers and are formatted as single-line FASTA before concatenation.
 + Before using the translatedna module, ensure your FASTA files are in single-line format by using the renameid and multi2singleline modules, even though the pipeline automatically converts multi-line FASTA files.
