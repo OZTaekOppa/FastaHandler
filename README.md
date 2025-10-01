@@ -49,7 +49,7 @@ python3 {path}/fastahandler.py
 Please refer to the example dataset folder for sample data and usage demonstrations.
 
 ### Optional Parameters
-		+ --t: Default is 1
+		+ --t: Default is 1 CPU
 		+ --mem: Default is 10 Gb
 
 ## GETTING STARTED
