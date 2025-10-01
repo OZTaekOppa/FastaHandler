@@ -1,6 +1,6 @@
-# FastaHandler extract pattern match sequence created by Hyungtaek Jung
-# A multi-fasta (multiline) file to find, filter and extract based on different criteria (filter length and sequence patterns).
-# Example command: python3 extractptrn.py --input-seq test.fa --input-ptrn find_ptrn.txt --len-over 100 --out test_out.fa (w/ optional for --t cpu and --mem memory) 
+# FastaHandler: created by Hyungtaek Jung
+# A multi-fasta (multiline) file to find, filter and extract based on different criteria (filter length and seqeuence patterns).
+# Example command: python3 extract_pattern.py --input-seq test.fa --input-ptrn find_ptrn.txt --len-over 100 --out test_out.fa (w/ optional for --t cpu and --mem memory) 
 
 
 #!/usr/bin/env python3
@@ -13,7 +13,7 @@ import logging
 from collections import defaultdict
 
 # Set up logging
-logging.basicConfig(filename='extractptr.log', level=logging.INFO,
+logging.basicConfig(filename='extract_pattern.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 def unzip_file(input_file, output_dir):
