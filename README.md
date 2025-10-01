@@ -177,7 +177,7 @@ Example usage
 ```
 python concatenate_fa.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.fasta test_dna4.fasta test_dna5.fasta --out output_concat.fasta --t 1 --mem 10
 ```
-+ For optimal use of this module, ensure that all input FASTA files have matching prefix IDs and headers and are formatted as single-line FASTA before concatenation.
++ For the best use of this module, please make sure that all input FASTA files have matching prefix IDs and headers and are formatted as single-line FASTA before concatenation.
 + Before using the concatenate module, ensure your FASTA files are in single-line format by using the renameid and multi2singleline modules, even though the pipeline automatically converts multi-line FASTA files.
 
 - Parameter explanation
@@ -190,7 +190,7 @@ python concatenate_fa.py --input-seqs test_dna1.fasta test_dna2.fasta test_dna3.
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 ### each_fa_stats
-- To generate each line fasta statistics for a multi-line fasta
+- To generate each line fasta statistics for each line of a multi-line fasta
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A multi-line fasta file.
 	+ Output: A summary of single-line fasta with its corresponding sequence length.
@@ -237,7 +237,7 @@ python3 extract_pattern.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### find_anchor_trim (다시 확인_OK)
+### find_anchor_trim
 - To generate a trimmed sequence from two anchor sequences and positions, considering mismatches, identity and alignment statistics. 
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A single-line reference fasta file and two anchor fasta sequences. 
@@ -249,7 +249,7 @@ Example usage
 python3 find_anchor_trim.py --input-fa ref_seq.fa --anchor1-fa anchor1_seq.fa --anchor2-fa anchor2_seq.fa --out ./ --t 1 --mem 10
 ```
 + If your input reference and anchor FASTA files are in multi-line format, the script will automatically convert them to single-line format for processing (embedded pipeline).
-+ A trimmed sequence and its summary of anchor-defined genomic regions for downstream analyses.
++ A trimmed sequence and its summary of anchor-defined genomic regions for downstream analyses will be saved.
 
 - Parameter explanation
 	1. Python 3: Call Python 3
@@ -284,7 +284,7 @@ python3 find_count_duplicate.py --input-seq test_dna2.fasta --out output_files.t
 		+ --t: Specify thread numbers (integer only)
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
-### find_merge_fa (다시 확인_OK)
+### find_merge_fa
 - To generate a merged fasta file from multiple fasta files in the same folder with a specific filename-matching pattern (*asm_chr1.fa in the --pattern-fa). 
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A folder that contains multiple fasta files 
@@ -403,8 +403,8 @@ python3 id_extract.py --input-seq test_dna.fasta --input-hdr header_id.txt --out
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### multi2each (다시 확인_OK)
-- To convert a multi-line FASTA into a single-line format for each FASTA header.
+### multi2each
+- To convert a multi-line FASTA into a single-line format with each FASTA header.
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A multi-line fasta file.
 	+ Output: A single-line format for each FASTA header.
@@ -447,7 +447,7 @@ python3 multi2single.py --input-seq test_dna.fasta --out test_output_sl.fasta --
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### overlap_split (다시 확인_OK)
+### overlap_split
 - To generate split overlapping fragments from a long single-FASTA sequence, with a user-specified overlapping size.
 - Two new FASTA files (e.g. *_a.fa and *_b.fa) are generated for every sequence, preserving safe, clean versions of the original headers.
  	+ Requirement: The Python/bash script requires a Python library.
@@ -473,7 +473,7 @@ python3 overlap_split.py --input-seq test.fa --overlap-size 1000 --out output_di
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### pangenome_id_rename (다시 확인_OK)
+### pangenome_id_rename
 - To generate a pangenome fasta header (re)name (#1# for “h1”, #2# for “h2”) using a tab-delimited text file and underscores to satisfy the [panSN-spec](https://github.com/pangenome/PanSN-spec).
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A tab-separated (3 columns) text file.
@@ -642,7 +642,7 @@ python3 reverse_complement.py --input-seq test_dna.fasta --out output_revctest.f
 		+ --mem: Specify memory numbers (integer only with Gb size)
 
 
-### size_pattern_search (다시 확인)
+### size_pattern_search
 - To detect the best match of a target (unique pattern or character) in an input FASTA, split unmatched regions into chunks, and use local alignment with parallel processing to compute mismatches and identity.
 - To produce tab-separated outputs of match indices, mismatch counts, and similarity stats—supporting probe/primer design, structural-variant detection, repeat analysis, and downstream genomics workflows.
  	+ Requirement: The Python/bash script requires a Python library.
@@ -658,8 +658,8 @@ python3 size_pattern_search.py --input-fa input.fa.gz --target-fa target.fa.gz -
 
 - Parameter explanation
 	1. Python 3: Call Python 3
-	1. ize_pattern_search.py:  Call the size_pattern_search module
-	1. python3 ize_pattern_search.py --help: Check help menu
+	1. size_pattern_search.py:  Call the size_pattern_search module
+	1. python3 size_pattern_search.py --help: Check help menu
 		+ --input-fa: Indicate an input multi-line fasta file and its path
         + --target-fa: Indicate a target fasta file
         + --char-size: Indicate a character size for searching between input and target fasta files
