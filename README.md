@@ -242,7 +242,7 @@ python3 extract_pattern.py --input-seq test_dna1.fasta --input-ptrn seq_pattern.
  	+ Requirement: The Python/bash script requires a Python library.
 	+ Input: A single-line reference fasta file and two anchor fasta sequences. 
 	+ Output: A trimmed sequence along with its summary text file (e.g. indexes, mismatches, identity and alignment statistics).
-  	+ Example file: [anchor_ref_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/[anchor_ref_asm.fa), [find_anchor1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/[find_anchor1.fa), and [find_anchor2.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/[find_anchor2.fa) in the "example_data" folder.
+  	+ Example file: [anchor_ref_asm.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/anchor_ref_asm.fa), [find_anchor1.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/find_anchor1.fa), and [find_anchor2.fa](https://github.com/OZTaekOppa/FastaHandler/blob/main/example_data/find_anchor2.fa) in the "example_data" folder.
 
 Example usage
 ```
