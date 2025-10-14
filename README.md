@@ -12,7 +12,7 @@ A collection of Python scripts designed for the efficient management of various 
 **FastaHandler** enables researchers to perform FASTA manipulations quickly, reproducibly, and at scale, complementing existing bioinformatics tools and supporting high standards of reproducibility in the Next-Generation Sequencing (NGS) era. Although primarily focused on FASTA file manipulation, several modules are also tailored for pangenome input file preparation, expanding its utility in genome assembly and comparative genomics.
 
 ## Citation
-Hyungtaek Jung. 2025: **FastaHandler**: An easy Python-based toolset for handling fasta files, [Genetics TBA](https://www.biorxiv.org/XXXX).
+Hyungtaek Jung. 2025: **FastaHandler**: An easy Python-based toolset for handling fasta files, [TBA](https://www.biorxiv.org/XXXX).
 
 
 ## Contents:
